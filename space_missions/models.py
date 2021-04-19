@@ -28,13 +28,13 @@ class Astronaut(models.Model):
     sex = models.CharField(max_length=1, choices=SEX_CHOICES)
     background = models.CharField(max_length=1, choices=BACKGROUND_CHOICES)
     year_of_birth = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2010)])
-    nationality = models.ForeignKey('space_missions.Country', on_delete=models.CASCADE)
+    nationality =   models.ForeignKey('space_missions.Country', on_delete=models.CASCADE)
 
-
+"""
 class Selection(models.Model):
     # NB: Una missione può avere + programmi di selezione
-    name = models.CharField(max_length=40, primary_key=True)
-    missions = models.ManyToManyField('space_missions.Mission', on_delete=models.CASCADE)
+    name       = models.CharField(max_length=40, primary_key=True)
+    missions   = models.ManyToManyField('space_missions.Mission', on_delete=models.CASCADE)
     astronauts = models.ManyToManyField('space_missions.Astronaut',
                                         through='RecruitmentProcedure',
                                         related_name='selections',
@@ -77,3 +77,4 @@ class Mission(models.Model):
                                         on_delete=models.CASCADE,
                                         through='AstronautOccupation',
                                         related_name='missions')
+"""
