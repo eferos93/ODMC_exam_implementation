@@ -30,15 +30,14 @@ class Astronaut(models.Model):
     year_of_birth = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2010)])
     nationality = models.ForeignKey('space_missions.Country', on_delete=models.CASCADE)
 
-
+"""
 class Selection(models.Model):
     # NB: Una missione può avere + programmi di selezione
-    name = models.CharField(max_length=40, primary_key=True)
-    missions = models.ManyToManyField('space_missions.Mission', on_delete=models.CASCADE)
+    name       = models.CharField(max_length=40, primary_key=True)
+    missions   = models.ManyToManyField('space_missions.Mission')
     astronauts = models.ManyToManyField('space_missions.Astronaut',
                                         through='space_missions.models.AstronautSelection',
-                                        related_name='selections',
-                                        on_delete=models.CASCADE)
+                                        related_name='selections')
 
 
 class AstronautSelection(models.Model):
@@ -174,3 +173,5 @@ class Organisation(models.Model):
 class Coordinate(models.Model):
     longitude = models.FloatField()
     latitude = models.FloatField()
+
+"""

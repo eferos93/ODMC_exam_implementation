@@ -1,0 +1,516 @@
+number,name,original_name,sex,year_of_birth,nationality,background
+1,"Gagarin, Yuri",ГАГАРИН Юрий Алексеевич,M,1934,RU,M
+2,"Titov, Gherman",ТИТОВ Герман Степанович,M,1935,RU,M
+3,"Glenn, John H., Jr.","Glenn, John H., Jr.",M,1921,US,M
+5,"Nikolayev, Andriyan",НИКОЛАЕВ Андриян Григорьевич,M,1929,RU,M
+6,"Popovich, Pavel",ПОПОВИЧ Павел Романович,M,1930,RU,M
+7,"Schirra, Walter M., Jr.","Schirra, Walter M., Jr.",M,1923,US,M
+8,"Cooper, L. Gordon, Jr.","Cooper, L. Gordon, Jr.",M,1927,US,M
+9,"Bykovsky, Valery",БЫКОВСКИЙ Валерий Федорович,M,1934,RU,M
+10,"Tereshkova, Valentina",ТЕРЕШКОВА Валентина Владимировна,F,1937,RU,M
+11,"Komarov, Vladimir",КОМАРОВ Владимир Михайлович,M,1927,RU,M
+12,"Feoktistov, Konstantin",ФЕОКТИСТОВ Константин Петрович,M,1926,RU,C
+13,"Yegorov, Boris",ЕГОРОВ Борис Борисович,M,1937,RU,C
+14,"Belyayev, Pavel",БЕЛЯЕВ Павел Иванович,M,1925,RU,M
+15,"Leonov, Aleksei",ЛЕОНОВ Алексей Архипович,M,1934,RU,M
+16,"Grissom, Virgil I.","Grissom, Virgil I.",M,1926,US,M
+17,"Young, John W.","Young, John W.",M,1930,US,M
+18,"McDivitt, James A.","McDivitt, James A.",M,1929,US,M
+19,"White, Edward H., II","White, Edward H., II",M,1930,US,M
+20,"Conrad, Charles, Jr.","Conrad, Charles, Jr.",M,1930,US,M
+21,"Borman, Frank","Borman, Frank",M,1928,US,M
+22,"Lovell, James A., Jr.","Lovell, James A., Jr.",M,1928,US,M
+23,"Stafford, Thomas P.","Stafford, Thomas P.",M,1930,US,M
+24,"Armstrong, Neil A.","Armstrong, Neil A.",M,1930,US,C
+25,"Scott, David R.","Scott, David R.",M,1932,US,M
+26,"Cernan, Eugene A.","Cernan, Eugene A.",M,1934,US,M
+27,"Collins, Michael","Collins, Michael",M,1930,US,C
+28,"Gordon, Richard F., Jr.","Gordon, Richard F., Jr.",M,1929,US,M
+29,"Aldrin, Edwin Eugene, Jr.","Aldrin, Edwin Eugene, Jr.",M,1930,US,M
+30,"Eisele, Donn F.","Eisele, Donn F.",M,1930,US,M
+31,"Cunningham, Ronnie Walter","Cunningham, Ronnie Walter",M,1932,US,C
+100,"Savinykh, Viktor",Виктор Петрович Савиных,M,1940,RU,C
+101,Jugderdemidiin Gurragchaa,Жүгдэрдэмидийн Гүррагчаа,M,1947,MN,C
+102,"Crippen, Robert L.","Crippen, Robert L.",M,1937,US,M
+103,Dumitru Prunariu,Dumitru-Dorin Prunariu,M,1952,RO,C
+104,"Engle, Joe H.","Engle, Joe H.",M,1932,US,M
+105,"Truly, Richard H.","Truly, Richard H.",M,1937,US,M
+106,"Fullerton, Charles G.","Fullerton, Charles G.",M,1936,US,M
+107,"Berezovoy, Anatoly",Анатолий Николаевич Березовой,M,1942,RU,M
+108,"Chrétien, Jean-Loup","Chrétien, Jean-Loup",M,1938,FR,M
+109,"Hartsfield, Henry W., Jr.","Hartsfield, Henry W., Jr.",M,1933,US,M
+110,"Serebrov, Aleksandr",Александр Александрович Серебров,M,1944,RU,C
+32,"Beregovoi, Georgi",БЕРЕГОВОЙ Георгий Тимофеевич,M,1921,RU,M
+33,"Anders, William Alison","Anders, William Alison",M,1933,US,C
+34,"Shatalov, Vladimir",ШАТАЛОВ Владимир Александрович,M,1927,RU,M
+35,"Volynov, Boris",ВОЛЫНОВ Борис Валентинович,M,1934,RU,M
+36,"Yeliseyev, Aleksei",ЕЛИСЕЕВ Алексей Станиславович,M,1934,RU,C
+37,"Khrunov, Yevgeny",ХРУНОВ Евгений Викторович,M,1933,RU,M
+38,"Schweickart, Russell L.","Schweickart, Russell L.",M,1935,US,C
+39,"Shonin, Georgi",ШОНИН Георгий Степанович,M,1935,RU,M
+40,"Kubasov, Valeri",КУБАСОВ Валерий Николаевич,M,1935,RU,M
+41,"Filipchenko, Anatoly",ФИЛИПЧЕНКО Анатолий Васильевич,M,1928,RU,M
+42,"Volkov, Vladislav",Владислав Николаевич Волков,M,1935,RU,M
+43,"Gorbatko, Viktor",Виктор Васильевич Горбатко,M,1934,RU,M
+44,"Bean, Alan Lavern","Bean, Alan Lavern",M,1932,US,M
+45,"Swigert, John L., Jr.","Swigert, John L., Jr.",M,1931,US,C
+46,"Haise, Fred W., Jr.","Haise, Fred W., Jr.",M,1933,US,C
+47,"Sevastyanov, Vitali",Виталий Иванович Севастьянов,M,1935,RU,C
+48,"Shepard, Alan B., Jr.","Shepard, Alan B., Jr.",M,1923,US,M
+49,"Roosa, Stuart A.","Roosa, Stuart A.",M,1933,US,M
+50,"Mitchell, Edgar D.","Mitchell, Edgar D.",M,1930,US,M
+51,"Rukavishnikov, Nikolai",Николай Николаевич Рукавишников,M,1932,RU,M
+52,"Dobrovolski, Georgi",Георгий Тимофеевич Добровольский,M,1928,RU,M
+53,"Patsayev, Viktor",Виктор Иванович Пацаев,M,1933,RU,C
+54,"Worden, Alfred M.","Worden, Alfred M.",M,1932,US,M
+55,"Irwin, James B.","Irwin, James B.",M,1930,US,M
+56,"Mattingly, Thomas K., II","Mattingly, Thomas K., II",M,1936,US,M
+57,"Duke, Jr. Charles Moss","Duke, Jr. Charles Moss",M,1935,US,M
+58,"Evans, Ronald E.","Evans, Ronald E.",M,1933,US,M
+59,"Schmitt, Harrison H.","Schmitt, Harrison H.",M,1935,US,C
+60,"Weitz, Paul J.","Weitz, Paul J.",M,1932,US,M
+61,"Kerwin, Joseph P.","Kerwin, Joseph P.",M,1932,US,M
+62,"Lousma, Jack R.","Lousma, Jack R.",M,1936,US,M
+63,"Garriott, Owen K.","Garriott, Owen K.",M,1930,US,C
+64,"Lazarev, Vasili",Василий Григорьевич Лазарев,M,1928,RU,M
+65,"Makarov, Oleg",Олег Григорьевич Макаров,M,1933,RU,C
+66,"Carr, Gerald P.","Carr, Gerald P.",M,1932,US,M
+67,"Pogue, William R.","Pogue, William R.",M,1930,US,M
+68,"Gibson, Edward G.","Gibson, Edward G.",M,1936,US,C
+69,"Klimuk, Pyotr",Петр Ильич Климук,M,1942,RU,M
+70,"Lebedev, Valentin",Валентин Витальевич Лебедев,M,1942,RU,C
+71,"Artyukhin, Yuri",Юрий Петрович Артюхин,M,1930,RU,M
+72,"Sarafanov, Gennadi",Геннадий Васильевич Сарафанов,M,1942,RU,M
+73,"Dyomin, Lev",Лев Степанович Дёмин,M,1926,RU,M
+74,"Gubarev, Aleksei",Алексей Александрович Губарев,M,1931,RU,M
+75,"Grechko, Georgi",Георгий Михайлович Гречко,M,1931,RU,C
+76,"Brand, Vance D.","Brand, Vance D.",M,1931,US,C
+77,"Slayton, Donald K.","Slayton, Donald K.",M,1924,US,C
+78,"Zholobov, Vitali",Виталий Михайлович Жолобов,M,1937,RU,M
+79,"Aksyonov, Vladimir",Владимир Викторович Аксёнов,M,1935,RU,M
+80,"Zudov, Vyacheslav",Вячеслав Дмитриевич Зудов,M,1942,RU,M
+81,"Rozhdestvensky, Valery",Валерий Ильич Рождественский,M,1939,RU,M
+82,"Glazkov, Yuri",Юрий Николаевич Глазков,M,1939,RU,M
+83,"Kovalyonok, Vladimir",Владимир Васильевич Ковалёнок,M,1942,RU,M
+84,"Ryumin, Valery",Валерий Викторович Рюмин,M,1939,RU,C
+85,"Romanenko, Yuri",Юрий Викторович Романенко,M,1944,RU,M
+86,"Dzhanibekov, Vladimir",Владимир Александрович Джанибеков,M,1942,RU,M
+87,Vladimir Remek,,M,1948,CZ,M
+88,"Ivanchenkov, Aleksandr",Александр Сергеевич Иванченков,M,1940,RU,M
+89,Miroslaw Hermaszewske,Miroslaw Hermaszewske,M,1941,PL,M
+90,"Jahn, Sigmund","Jahn, Sigmund",M,1937,DE,M
+91,"Lyakhov, Vladimir",Владимир Афанасьевич Ляхов,M,1941,RU,M
+92,Georgi Ivanov,Георги Иванов Иванов,M,1940,BG,M
+93,"Popov, Leonid",Леонид Иванович Попов,M,1945,RU,M
+94,Bertalan Farkas,Farkas Bertalan,M,1949,HU,C
+95,"Malyshev, Yuri",Юрий Васильевич Малышев,M,1941,RU,M
+96,Pham Tuan,Phạm Tuân,M,1947,VN,M
+97,Arnaldo Tamayo Mendez,Arnaldo Tamayo Méndez,M,1942,CU,M
+98,"Kizim, Leonid",Леонид Денисович Кизим,M,1941,RU,M
+99,"Strekalov, Gennadi",Геннадий Михайлович Стрекалов,M,1940,RU,C
+111,"Savitskaya, Svetlana",Светлана Евгеньевна Савицкая,F,1948,RU,C
+112,"Overmyer, Robert F.","Overmyer, Robert F.",M,1936,US,M
+113,"Allen, Joseph P.","Allen, Joseph P.",M,1937,US,C
+114,"Lenoir, William B.","Lenoir, William B.",M,1939,US,C
+115,"Bobko, Karol J.","Bobko, Karol J.",M,1937,US,M
+116,"Peterson, Donald H.","Peterson, Donald H.",M,1933,US,M
+117,"Musgrave, Franklin Story","Musgrave, Franklin Story",M,1935,US,C
+118,"Titov, Vladimir",Владимир Георгиевич Титов,M,1947,RU,M
+119,"Hauck, Frederick H.","Hauck, Frederick H.",M,1941,US,M
+120,"Fabian, John M.","Fabian, John M.",M,1939,US,M
+121,"Ride, Sally K.","Ride, Sally K.",F,1951,US,C
+122,"Thagard, Norman E.","Thagard, Norman E.",M,1943,US,C
+123,"Aleksandrov, Aleksandr",Александр Павлович Александров,M,1943,RU,C
+124,"Brandenstein, Daniel C.","Brandenstein, Daniel C.",M,1943,US,M
+125,"Bluford, Guion S., Jr.","Bluford, Guion S., Jr.",M,1942,US,M
+126,"Gardner, Dale A.","Gardner, Dale A.",M,1948,US,M
+127,"Thornton, William E.","Thornton, William E.",M,1929,US,C
+128,"Shaw, Brewster H., Jr.","Shaw, Brewster H., Jr.",M,1945,US,M
+129,"Parker, Robert A. R.","Parker, Robert A. R.",M,1936,US,C
+130,"Lichtenberg, Byron Kurt","Lichtenberg, Byron Kurt",M,1948,US,M
+131,"Merbold, Ulf","Merbold, Ulf",M,1941,DE,C
+132,"Gibson, Robert L.","Gibson, Robert L.",M,1946,US,M
+133,"McNair, Ronald E.","McNair, Ronald E.",M,1950,US,C
+134,"Stewart, Robert L.","Stewart, Robert L.",M,1942,US,M
+135,"McCandless, Bruce, II","McCandless, Bruce, II",M,1937,US,M
+136,"Solovyov, Vladimir",Владимир Алексеевич Соловьёв,M,1946,RU,C
+137,"Atkov, Oleg",Олег Юрьевич Атьков,M,1949,RU,C
+138,Rakesh Sharma,राकेश शर्मा,M,1949,IN,M
+139,"Scobee, Francis R.","Scobee, Francis R.",M,1939,US,M
+140,"Hart, Terry J.","Hart, Terry J.",M,1946,US,C
+141,"Van Hoften, James D. A.","Van Hoften, James D. A.",M,1944,US,C
+142,"Nelson, George D.","Nelson, George D.",M,1950,US,C
+143,"Volk, Igor",Игорь Петрович Волк,M,1937,RU,M
+144,"Coats, Michael L.","Coats, Michael L.",M,1952,US,M
+145,"Mullane, Richard M.","Mullane, Richard M.",M,1945,US,M
+146,"Hawley, Steven A.","Hawley, Steven A.",M,1951,US,C
+147,"Resnik, Judith A.","Resnik, Judith A.",F,1949,US,C
+148,"Walker, Charles David","Walker, Charles David",M,1948,US,C
+149,"McBride, Jon A.","McBride, Jon A.",M,1943,US,M
+150,"Sullivan, Kathryn D.","Sullivan, Kathryn D.",F,1951,US,C
+151,"Leestma, David C.","Leestma, David C.",M,1949,US,M
+152,"Scully-Power, Paul Desmond","Scully-Power, Paul Desmond",M,1944,US,C
+153,"Garneau, Marc Joseph Jean-Pierre","Garneau, Marc Joseph Jean-Pierre",M,1949,CA,M
+154,"Walker, David Mathieson","Walker, David Mathieson",M,1944,US,M
+155,"Fisher, Anna L.","Fisher, Anna L.",F,1949,US,C
+156,"Shriver, Loren J.","Shriver, Loren J.",M,1944,US,M
+157,"Onizuka, Ellison S.","Onizuka, Ellison S.",M,1946,US,M
+158,"Buchli, James F.","Buchli, James F.",M,1945,US,M
+159,"Payton, Gary Eugene","Payton, Gary Eugene",M,1948,US,M
+160,"Williams, Donald E.","Williams, Donald E.",M,1942,US,M
+161,"Seddon, Margaret Rhea","Seddon, Margaret Rhea",F,1947,US,C
+162,"Griggs, S. David","Griggs, S. David",M,1947,US,C
+163,"Hoffman, Jeffrey A.","Hoffman, Jeffrey A.",M,1944,US,C
+164,"Garn, Edwin Jacob","Garn, Edwin Jacob",M,1932,US,M
+165,"Gregory, Frederick D.","Gregory, Frederick D.",M,1941,US,M
+166,"Lind, Don L.","Lind, Don L.",M,1930,US,M
+167,"Lodewijk, van der Berg","Lodewijk, van der Berg",M,1932,US,C
+168,"Wang, Taylor Gun-Jin",王赣骏,M,1940,US,C
+169,"Creighton, John O.","Creighton, John O.",M,1943,US,M
+170,"Nagel, Steven R.","Nagel, Steven R.",M,1946,US,M
+171,"Lucid, Shannon W.","Lucid, Shannon W.",F,1943,US,C
+172,"Baudry, Patrick","Baudry, Patrick",M,1946,FR,M
+173,"Al-saud, Sultan bin Salman",,M,1956,SA,C
+174,"Bridges, Roy D., Jr.","Bridges, Roy D., Jr.",M,1943,US,M
+175,"Henize, Karl G.","Henize, Karl G.",M,1926,US,C
+176,"England, Anthony W.","England, Anthony W.",M,1942,US,C
+177,"Acton, Loren Wilbur","Acton, Loren Wilbur",M,1936,US,C
+178,"Bartoe, John-David Francis","Bartoe, John-David Francis",M,1944,US,C
+179,"Covey, Richard O.","Covey, Richard O.",M,1946,US,M
+180,"Lounge, John M.","Lounge, John M.",M,1946,US,C
+181,"Fisher, William F.","Fisher, William F.",M,1946,US,C
+182,"Vasyutin, Vladimir",Владимир Владимирович Васютин,M,1952,RU,M
+183,"Volkov, Alexander",Александр Александрович Волков,M,1948,RU,M
+184,"Grabe, Ronald J.","Grabe, Ronald J.",M,1945,US,M
+185,"Hilmers, David C.","Hilmers, David C.",M,1950,US,M
+186,"Pailes, William Arthur","Pailes, William Arthur",M,1936,US,M
+187,"Dunbar, Bonnie J.","Dunbar, Bonnie J.",F,1949,US,C
+188,"Furrer, Reinhard Alfred","Furrer, Reinhard Alfred",M,1940,DE,C
+189,"Messerschmid, Ernst Willi","Messerschmid, Ernst Willi",M,1945,DE,M
+190,"Ockels, Wubbo Johannes","Ockels, Wubbo Johannes",M,1946,NL,C
+192,"Ross, Jerry L.","Ross, Jerry L.",M,1948,US,M
+193,"Cleave, Mary L.","Cleave, Mary L.",F,1947,US,C
+194,"Spring, Sherwood C.","Spring, Sherwood C.",M,1944,US,M
+195,"Neri Vela, Rodolfl",,M,1952,MX,C
+196,"Bolden, Charles F., Jr.","Bolden, Charles F., Jr.",M,1946,US,M
+197,"Chang-Diaz, Franklin R.","Chang-Diaz, Franklin R.",M,1950,US,C
+198,"Cenker, Robert Joseph","Cenker, Robert Joseph",M,1948,US,C
+199,"Nelson, William Clarence","Nelson, William Clarence",M,1942,US,C
+200,"Smith, Michael John","Smith, Michael John",M,1945,US,M
+201,"Jarvis, Gregory Bruce","Jarvis, Gregory Bruce",M,1944,US,C
+202,"McAuliffe, Sharon Christa Corrigan","McAuliffe, Sharon Christa Corrigan",F,1948,US,C
+204,"Viktorenko, Aleksandr",Александр Степанович Викторенко,M,1947,RU,M
+205,"Faris, M. Achmed",,M,1951,SY,M
+206,"Manarov, Musa",Муса Хираманович Манаров,M,1951,RU,M
+207,"Levchenko, Anatoli",Левченко Анатолий Семёнович,M,1941,RU,M
+208,"Solovyev, Anatoly",Анатолий Яковлевич Соловьёв,M,1948,RU,M
+210,"Polyakov, Valeri",Валерий Владимирович Поляков,M,1942,RU,C
+211,"Mohmand, Abdul Ahad",,M,1959,AF,M
+212,"Krikalev, Sergei",Сергей Константинович Крикалёв,M,1958,RU,C
+213,"Gardner, Guy S.","Gardner, Guy S.",M,1948,US,M
+214,"Shepherd, William M.","Shepherd, William M.",M,1949,US,M
+215,"Blaha, John E.","Blaha, John E.",M,1942,US,M
+216,"Springer, Robert C.","Springer, Robert C.",M,1942,US,M
+217,"Bagian, James P.","Bagian, James P.",M,1952,US,C
+218,"Lee, Mark C.","Lee, Mark C.",M,1952,US,M
+219,"Richards, Richard N.","Richards, Richard N.",M,1946,US,M
+220,"Adamson, James C.","Adamson, James C.",M,1946,US,M
+221,"Brown, Mark N.","Brown, Mark N.",M,1951,US,M
+222,"McCulley, Michael J.","McCulley, Michael J.",M,1943,US,M
+223,"Baker, Ellen S.","Baker, Ellen S.",F,1953,US,C
+225,"Thornton, Kathryn C.","Thornton, Kathryn C.",F,1952,US,C
+226,"Wetherbee, James D.","Wetherbee, James D.",M,1952,US,M
+227,"Ivins, Marsha S.","Ivins, Marsha S.",F,1951,US,C
+228,"Low, G. David","Low, G. David",M,1956,US,C
+230,"Casper, John H.","Casper, John H.",M,1943,US,M
+231,"Thuot, Pierre J.","Thuot, Pierre J.",M,1955,US,M
+232,"Manakov, Gennadi",Геннадий Михайлович Манаков,M,1950,RU,M
+233,"Cabana, Robert D.","Cabana, Robert D.",M,1949,US,M
+234,"Melnick, Bruce E.","Melnick, Bruce E.",M,1949,US,M
+235,"Akers, Thomas D.","Akers, Thomas D.",M,1951,US,M
+236,"Culbertson, Frank L., Jr.","Culbertson, Frank L., Jr.",M,1949,US,M
+237,"Meade, Carl J.","Meade, Carl J.",M,1950,US,M
+238,"Gemar, Charles D.","Gemar, Charles D.",M,1955,US,M
+239,"Durrance, Samuel Thornton","Durrance, Samuel Thornton",M,1943,US,C
+240,"Parise, Ronald Anthony","Parise, Ronald Anthony",M,1951,US,C
+241,"Afanasyev, Viktor Mikhaylovich",Виктор Михайлович Афанасьев,M,1948,RU,M
+242,"Akiyama, Toyohiro",秋山豊寛,M,1942,JP,C
+243,"Cameron, Kenneth D.","Cameron, Kenneth D.",M,1949,US,M
+244,"Godwin, Linda M.","Godwin, Linda M.",F,1952,US,C
+245,"Apt, Jerome","Apt, Jerome",M,1949,US,C
+246,"Hammond, L. Blaine, Jr.","Hammond, L. Blaine, Jr.",M,1952,US,M
+247,"Harbaugh, Gregory J.","Harbaugh, Gregory J.",M,1956,US,C
+248,"McMonagle, Donald R.","McMonagle, Donald R.",M,1952,US,M
+249,"Veach, Charles Lacy","Veach, Charles Lacy",M,1944,US,C
+250,"Hieb, Richard J.","Hieb, Richard J.",M,1955,US,C
+252,Helen Sharman,Helen Sharman,F,1963,GB,C
+253,"Gutierrez, Sidney M.","Gutierrez, Sidney M.",M,1951,US,M
+254,"Jernigan, Tamara E.","Jernigan, Tamara E.",F,1959,US,C
+255,"Gaffney, Andrew","Gaffney, Andrew",M,1946,US,C
+256,"Hughes-Fulford, Millie Elizabeth","Hughes-Fulford, Millie Elizabeth",F,1945,US,C
+257,"Baker, Michael A.","Baker, Michael A.",M,1953,US,M
+258,"Reightler, Kenneth S., Jr.","Reightler, Kenneth S., Jr.",M,1951,US,M
+259,"Aubakirov, Toktar",Тоқтар Оңғарбайұлы Әубәкіров,M,1946,RU,M
+260,"Viehbock, Franz","Viehbock, Franz",M,1960,AT,C
+261,"Henricks, Terence T.","Henricks, Terence T.",M,1952,US,M
+262,"Voss, James S.","Voss, James S.",M,1949,US,M
+263,"Runco, Mario, Jr.","Runco, Mario, Jr.",M,1952,US,M
+264,"Hennen, Thomas John","Hennen, Thomas John",M,1952,US,M
+265,"Oswald, Stephen S.","Oswald, Stephen S.",M,1951,US,M
+266,"Readdy, William F.","Readdy, William F.",M,1952,US,C
+267,"Bondar, Roberta Lynn","Bondar, Roberta Lynn",F,1945,CA,C
+268,"Kaleri, Aleksandr",Александр Юрьевич Калери,M,1956,RU,C
+269,"Flade, Klaus-Dietrich","Flade, Klaus-Dietrich",M,1952,DE,M
+270,"Duffy, Brian","Duffy, Brian",M,1953,US,M
+271,"Foale, C. Michael","Foale, C. Michael",M,1957,US,C
+272,"Frimout, David","Frimout, Dirk Dries david",M,1941,BE,C
+273,"Chilton, Kevin P.","Chilton, Kevin P.",M,1954,US,M
+274,"Bowersox, Kenneth D.","Bowersox, Kenneth D.",M,1956,US,M
+275,"DeLucas, Lawrence James","DeLucas, Lawrence James",M,1950,US,C
+276,"Trinh, Eugene Huu-Chau","Trinh, Eugene Huu-Chau",M,1950,US,C
+277,"Avdeyev, Sergei",Сергей Васильевич Авдеев,M,1956,RU,C
+278,"Tognini, Michel","Tognini, Michel",M,1949,FR,M
+279,"Allen, Andrew M.","Allen, Andrew M.",M,1955,US,M
+280,"Nicollier, Claude","Nicollier, Claude",M,1944,CH,C
+282,"Brown, Curtis L., Jr.","Brown, Curtis L., Jr.",M,1956,US,M
+283,"Davis, Nancy Jan","Davis, Nancy Jan",F,1953,US,C
+284,"Jemison, Mae C.","Jemison, Mae C.",F,1956,US,C
+285,"Mohri, Mamoru",毛利衛,M,1948,JP,C
+286,Steven MacLean,Steven MacLean,M,1954,CA,M
+287,"Clifford, Michael R.","Clifford, Michael R.",M,1952,US,M
+288,"Helms, Susan J.","Helms, Susan J.",F,1958,US,M
+289,"Poleshchuk, Aleksandr",Александр Федорович Полещук,M,1953,RU,M
+290,"Cockrell, Kenneth D.","Cockrell, Kenneth D.",M,1950,US,C
+291,"Ochoa, Ellen","Ochoa, Ellen",F,1958,US,C
+292,"Precourt, Charles J., Jr.","Precourt, Charles J., Jr.",M,1955,US,M
+293,"Harris, Bernard A., Jr.","Harris, Bernard A., Jr.",M,1956,US,C
+294,"Walter, Ulrich","Walter, Ulrich",M,1954,DE,C
+295,"Schlegel, Hans","Schlegel, Hans",M,1951,DE,C
+296,"Currie, Nancy J.","Currie, Nancy J.",F,1958,US,M
+297,"Wisoff, Peter J. K.","Wisoff, Peter J. K.",M,1958,US,C
+298,"Voss, Janice E.","Voss, Janice E.",F,1956,US,C
+299,"Tsibliyev, Vasili",Василий Васильевич Циблиев,M,1954,RU,M
+300,"Haigneré, Jean-Pierre","Haigneré, Jean-Pierre",M,1948,FR,M
+301,"Newman, James H.","Newman, James H.",M,1956,US,C
+302,"Bursch, Daniel W.","Bursch, Daniel W.",M,1957,US,M
+303,"Walz, Carl E.","Walz, Carl E.",M,1955,US,M
+304,"Searfoss, Richard A.","Searfoss, Richard A.",M,1956,US,M
+305,"McArthur, William S., Jr.","McArthur, William S., Jr.",M,1951,US,M
+306,"Wolf, David A.","Wolf, David A.",M,1956,US,C
+307,"Fettman, Martin Joseph","Fettman, Martin Joseph",M,1956,US,C
+308,Yuri Vladimirovich Usachyov,Юрий Владимирович Усачёв,M,1957,RU,M
+309,"Sega, Ronald M.","Sega, Ronald M.",M,1952,US,C
+310,"Jones, Thomas D.","Jones, Thomas D.",M,1955,US,C
+311,"Malenchenko, Yuri",Юрий Иванович Маленченко,M,1961,RU,M
+312,"Musabayev, Talgat",Талғат Аманкелдіұлы Мұсабаев,M,1951,RU,M
+313,"Halsell, James D., Jr.","Halsell, James D., Jr.",M,1956,US,M
+314,"Chiao, Leroy","Chiao, Leroy",M,1960,US,C
+315,"Thomas, Donald A.","Thomas, Donald A.",M,1955,US,C
+316,"Mukai, Chiaki",向井千秋,F,1952,JP,C
+317,"Linenger, Jerry M.","Linenger, Jerry M.",M,1955,US,M
+318,"Wilcutt, Terrence W.","Wilcutt, Terrence W.",M,1949,US,M
+319,"Smith, Steven L.","Smith, Steven L.",M,1958,US,C
+320,"Kondakova, Yelena V.",Елена Владимировна Кондакова,F,1957,RU,C
+321,"Tanner, Joseph R.","Tanner, Joseph R.",M,1950,US,C
+322,"Clervoy, Jean-François","Clervoy, Jean-François",M,1958,FR,M
+323,"Parazynski, Scott E.","Parazynski, Scott E.",M,1961,US,C
+324,"Collins, Eileen M.","Collins, Eileen M.",F,1956,US,M
+325,"Gregory, William G.","Gregory, William G.",M,1957,US,M
+326,"Grunsfeld, John M.","Grunsfeld, John M.",M,1958,US,C
+327,"Lawrence, Wendy B.","Lawrence, Wendy B.",F,1959,US,M
+328,"Dezhurov, Vladimir N.",Владимир Николаевич Дежуров,M,1962,RU,M
+331,"Weber, Mary E.","Weber, Mary E.",F,1962,US,C
+332,"Gidzenko, Yuri",Юрий Павлович Гидзенко,M,1962,RU,M
+333,"Reiter, Thomas","Reiter, Thomas",M,1958,DE,M
+334,"Gernhardt, Michael L.","Gernhardt, Michael L.",M,1956,US,C
+335,"Rominger, Kent V.","Rominger, Kent V.",M,1956,US,M
+336,"Coleman, Catherine G.","Coleman, Catherine G.",F,1960,US,M
+337,"Lopez-Alegria, Michael E.","Lopez-Alegria, Michael E.",M,1958,US,M
+340,Chris Hadfield,Chris Hadfield,M,1959,CA,M
+341,"Jett, Brent W.","Jett, Brent W.",M,1958,US,M
+342,"Scott, Winston E.","Scott, Winston E.",M,1950,US,M
+343,"Wakata, Koichi",若田光一,M,1963,JP,C
+344,"Barry, Daniel T.","Barry, Daniel T.",M,1953,US,C
+345,"Onufrienko, Yuri",Юрий Иванович Онуфриенко,M,1961,RU,M
+346,"Horowitz, Scott J.","Horowitz, Scott J.",M,1957,US,M
+347,"Cheli, Maurizio","Cheli, Maurizio",M,1959,IT,M
+348,"Guidoni, Umberto","Guidoni, Umberto",M,1954,IT,C
+349,"Thomas, Andrew S. W.","Thomas, Andrew S. W.",M,1951,AU,C
+350,"Linnehan, Richard M.","Linnehan, Richard M.",M,1957,US,C
+355,"André-Deshays, Claudie (Haigneré)","André-Deshays, Claudie (Haigneré)",F,1957,FR,C
+356,"Lazutkin, Aleksandr",Александр Иванович Лазуткин,M,1957,RU,C
+357,"Ewald, Reinhold","Ewald, Reinhold",M,1956,DE,C
+358,"Kilrain-Still, Susan L.","Kilrain-Still, Susan L.",F,1961,US,M
+359,"Crouch, Roger Keith","Crouch, Roger Keith",M,1940,US,C
+360,"Linteris, Gregory Thomas","Linteris, Gregory Thomas",M,1957,US,C
+361,"Noriega, Carlos I.","Noriega, Carlos I.",M,1959,US,M
+362,"Lu, Edward T.","Lu, Edward T.",M,1963,US,C
+363,"Vinogradov, Pavel",Павел Владимирович Виноградов,M,1953,RU,C
+364,"Curbeam, Robert L., Jr.","Curbeam, Robert L., Jr.",M,1962,US,M
+365,"Robinson, Stephen K.","Robinson, Stephen K.",M,1955,US,C
+366,Bjarni Tryggvason,Bjarni Tryggvason,M,1945,CA,C
+367,"Bloomfield, Michael J.","Bloomfield, Michael J.",M,1959,US,M
+368,"Lindsey, Steven W.","Lindsey, Steven W.",M,1960,US,M
+369,"Chawla, Kalpana","Chawla, Kalpana",F,1962,US,C
+370,"Doi, Takao",土井隆雄,M,1954,JP,C
+373,"Reilly, James F.","Reilly, James F.",M,1954,US,C
+374,"Anderson, Michael P.","Anderson, Michael P.",M,1959,US,M
+375,"Sharipov, Salizhan",Салижан Шакирович Шарипов,M,1964,RU,M
+376,"Eyharts, Léopold","Eyharts, Léopold",M,1957,FR,M
+377,"Altman, Scott D.","Altman, Scott D.",M,1959,US,M
+378,"Hire, Kathryn P.","Hire, Kathryn P.",F,1959,US,M
+379,"Williams, Dafydd Rhys","Williams, Dafydd Rhys",M,1954,CA,C
+382,"Gorie, Dominic L.","Gorie, Dominic L.",M,1957,US,M
+383,"Kavandi, Janet L.","Kavandi, Janet L.",F,1957,US,C
+384,"Padalka, Gennady",Геннадий Иванович Падалка,M,1958,RU,M
+385,"Duque, Pedro","Duque, Pedro Francisco",M,1963,ES,C
+385,"Baturin, Yuri",Юрий Михайлович Батурин,M,1949,RU,C
+387,"Sturckow, Frederick W.","Sturckow, Frederick W.",M,1961,US,M
+388,"Bella, Ivan","Bella, Ivan",M,1964,SK,M
+389,"Husband, Rick D.","Husband, Rick D.",M,1957,US,M
+390,"Payette, Julie","Payette, Julie",F,1963,CA,C
+391,"Tokarev, Valeri",Валерий Иванович Токарев,M,1952,RU,M
+392,"Ashby, Jeffrey S.","Ashby, Jeffrey S.",M,1954,US,M
+393,"Kelly, Scott J.","Kelly, Scott J.",M,1964,US,M
+395,"Zalyotin, Sergei",Сергей Викторович Залётин,M,1962,RU,M
+396,"Williams, Jeffrey N.","Williams, Jeffrey N.",M,1958,US,M
+397,"Mastracchio, Richard A.","Mastracchio, Richard A.",M,1960,US,C
+398,"Burbank, Daniel C.","Burbank, Daniel C.",M,1961,US,M
+399,"Morukov, Boris",Борис Владимирович Моруков,M,1950,RU,C
+400,"Melroy, Pamela A.","Melroy, Pamela A.",F,1961,US,M
+401,"Polansky, Mark L.","Polansky, Mark L.",M,1956,US,C
+402,"Kelly, James M.","Kelly, James M.",M,1959,US,M
+403,"Richards, Paul W.","Richards, Paul W.",M,1964,US,C
+404,"Phillips, John L.","Phillips, John L.",M,1951,US,C
+405,"Lonchakov, Yuri",Юрий Валентинович Лончаков,M,1965,RU,M
+407,"Hobaugh, Charles O.","Hobaugh, Charles O.",M,1961,US,M
+408,"Forrester, Patrick G.","Forrester, Patrick G.",M,1957,US,M
+409,"Tyurin, Mikhail",Михаил Владиславович Тюрин,M,1960,RU,M
+410,"Kozeyev, Konstantin",Константин Мирович Козеев,M,1967,RU,C
+411,"Kelly, Mark E.","Kelly, Mark E.",M,1964,US,M
+412,"Tani, Daniel M.","Tani, Daniel M.",M,1961,US,C
+413,"Carey, Duane G.","Carey, Duane G.",M,1957,US,M
+414,"Massimino, Michael J.","Massimino, Michael J.",M,1962,US,C
+415,"Frick, Stephen N.","Frick, Stephen N.",M,1964,US,M
+416,"Walheim, Rex J.","Walheim, Rex J.",M,1962,US,M
+417,"Morin, Lee M.","Morin, Lee M.",M,1952,US,M
+418,"Vittori, Roverto","Vittori, Roverto",M,1964,IT,M
+419,"Shuttleworth, M. Richard","Shuttleworth, M. Richard",M,1973,ZA,C
+420,"Lockhart, Paul S.","Lockhart, Paul S.",M,1956,US,M
+421,"Perrin, Philippe","Perrin, Philippe",M,1963,FR,M
+422,"Whitson, Peggy A.","Whitson, Peggy A.",F,1960,US,C
+424,"Magnus, Sandra H.","Magnus, Sandra H.",F,1964,US,C
+425,"Sellers, Piers J.","Sellers, Piers J.",M,1955,UK,C
+426,"Yurchikhin, Fyodor",Фёдор Николаевич Юрчихин,M,1959,RU,C
+427,"De Winne, Frank","De Winne, Frank",M,1961,BE,M
+428,"Herrington, John B.","Herrington, John B.",M,1958,US,M
+429,"Pettit, Donald R.","Pettit, Donald R.",M,1955,US,C
+430,"McCool, William C.","McCool, William C.",M,1961,US,M
+431,"Brown, David M.","Brown, David M.",M,1956,US,M
+432,"Clark, Laurel B.","Clark, Laurel B.",F,1961,US,M
+433,"Ramon, Ilan",אילן רמון,M,1954,IL,M
+434,"Yang, Liwei",杨利伟,M,1965,CN,M
+435,"Fincke, E. Michael","Fincke, E. Michael",M,1967,US,M
+436,"Kuipers, Andre","Kuipers, Andre",M,1958,NL,C
+437,"Shargin, Yuri",Юрий Георгиевич Шаргин,M,1960,RU,M
+438,"Noguchi, Soichi",野口聡一,M,1965,JP,C
+439,"Camarda, Charles J.","Camarda, Charles J.",M,1952,US,C
+440,"Olsen, Gregory Hammond","Olsen, Gregory Hammond",M,1945,US,C
+441,"Fei, Junlong",费俊龙,M,1966,CN,M
+442,Nie Haisheng,聂海胜,M,1964,CN,M
+443,"Pontes, Marcos Cesar","Pontes, Marcos Cesar",M,1963,BR,M
+444,"Fossum, Michael E.","Fossum, Michael E.",M,1957,US,C
+445,"Nowak, Lisa M.","Nowak, Lisa M.",F,1963,US,M
+446,"Wilson, Stephanie D.","Wilson, Stephanie D.",F,1966,US,C
+447,"Ferguson, Christopher J.","Ferguson, Christopher J.",M,1961,US,M
+448,"Stefanyshyn-Piper, Heidemarie M.","Stefanyshyn-Piper, Heidemarie M.",F,1963,US,M
+449,"Ansari, Anousheh",انوشه انصاری,F,1966,US,C
+450,"Oefelein, William A.","Oefelein, William A.",M,1965,US,M
+451,"Patrick, Nicholas J. M.","Patrick, Nicholas J. M.",M,1964,UK,C
+452,Christer Fuglesang,Christer Fuglesang,M,1957,SE,C
+453,"Higginbotham, Joan E.","Higginbotham, Joan E.",F,1964,US,C
+454,"Williams, Sunita L.","Williams, Sunita L.",F,1965,US,M
+456,"Simonyi, Charles (Karoly)","Simonyi, Charles (Karoly)",M,1948,US,C
+457,"Archambault, Lee J.","Archambault, Lee J.",M,1960,US,M
+458,"Swanson, Steven R.","Swanson, Steven R.",M,1960,US,C
+459,"Olivas, John D.","Olivas, John D.",M,1965,US,C
+460,"Anderson, Clayton C.","Anderson, Clayton C.",M,1959,US,C
+461,"Caldwell, Tracy E.","Caldwell, Tracy E.",F,1969,US,C
+462,"Drew, Alvin Benjamin","Drew, Alvin B.",M,1962,US,M
+463,"Morgan, Barbara R.","Morgan, Barbara R.",F,1951,US,C
+464,"Shukor, Sheikh Muszaphar","Shukor, Sheikh Muszaphar",M,1972,MY,C
+465,"Zamka, George D.","Zamka, George D.",M,1962,US,M
+466,"Wheelock, Douglas H.","Wheelock, Douglas H.",M,1960,US,M
+467,"Nespoli, Paolo A.","Nespoli, Paolo A.",M,1957,IT,M
+468,"Poindexter, Alan G.","Poindexter, Alan G.",M,1961,US,M
+469,"Melvin, Leland D.","Melvin, Leland D.",M,1964,US,C
+470,"Love, Stanley G.","Love, Stanley G.",M,1965,US,C
+471,"Johnson, Gregory H.","Johnson, Gregory H.",M,1962,US,M
+472,"Behnken, Robert L.","Behnken, Robert L.",M,1970,US,M
+473,"Foreman, Michael J.","Foreman, Michael J.",M,1957,US,M
+474,"Reisman, Garrett E.","Reisman, Garrett E.",M,1968,US,C
+475,"Volkov, Sergei",Сергей Александрович Волков,M,1973,RU,M
+476,"Kononenko, Oleg D.",Олег Дмитриевич Кононенко,M,1964,RU,M
+477,"Yi, Soyeon (Lee So-hyun)",이소연,F,1978,KR,C
+478,"Ham, Kenneth T.","Ham, Kenneth T.",M,1964,US,M
+479,"Nyberg, Karen L.","Nyberg, Karen L.",F,1969,US,C
+480,"Garan, Ronald J., Jr.","Garan, Ronald J., Jr.",M,1961,US,M
+481,"Hoshide, Akihiko",星出彰彦,M,1968,JP,C
+482,"Chamitoff, Gregory","Chamitoff, Gregory",M,1962,US,C
+483,"Zhai, Zhigang",翟志刚,M,1966,CN,M
+484,"Liu, Boming",刘伯明,M,1966,CN,M
+485,"Jing, Haipeng",景海鹏,M,1966,CN,M
+486,"Garriott, Richard Allen","Garriott, Richard Allen",M,1961,UK,C
+487,"Boe, Eric A.","Boe, Eric A.",M,1964,US,M
+488,"Bowen, Stephen G.","Bowen, Stephen G.",M,1964,US,M
+489,"Kimbrough, Robert S.","Kimbrough, Robert S.",M,1967,US,M
+490,"Antonelli, Dominic A.","Antonelli, Dominic A.",M,1967,US,M
+491,"Acaba, Joseph M.","Acaba, Joseph M.",M,1967,US,C
+492,"Arnold, Richard R., II","Arnold, Richard R., II",M,1963,US,C
+493,"Barratt, Michael R.","Barratt, Michael R.",M,1959,US,C
+494,"Johnson, Gregory C.","Johnson, Gregory C.",M,1954,US,C
+495,"Good, Michael T.","Good, Michael T.",M,1962,US,M
+496,"McArthur, K. Megan","McArthur, K. Megan",F,1971,US,C
+497,"Feustel, Andrew J.","Feustel, Andrew J.",M,1965,US,C
+498,"Romanenko, Roman",Роман Юрьевич Романенко,M,1971,RU,M
+499,"Hurley, Douglas G.","Hurley, Douglas G.",M,1966,US,M
+500,"Cassidy, Christopher J.","Cassidy, Christopher J.",M,1970,US,M
+501,"Marshburn, Thomas H.","Marshburn, Thomas H.",M,1960,US,M
+502,"Kopra, Timothy L.","Kopra, Timothy L.",M,1963,US,M
+503,"Ford, Kevin A.","Ford, Kevin A.",M,1960,US,M
+504,"Hernandez, Jose M.","Hernandez, Jose M.",M,1962,US,C
+505,"Stott, Nicole P.","Stott, Nicole P.",F,1962,US,C
+506,"Surayev, Maksim",Максим Викторович Сураев,M,1972,RU,M
+507,Guy Laliberte,Guy Laliberte,M,1959,CA,C
+508,"Wilmore, Barry E.","Wilmore, Barry E.",M,1962,US,M
+509,"Bresnik, Randolph J.","Bresnik, Randolph J.",M,1967,US,M
+510,"Satcher, Robert L.","Satcher, Robert L.",M,1965,US,C
+512,"Virts, Terry W., Jr.","Virts, Terry W., Jr.",M,1967,US,M
+513,"Skvortsov, Aleksandr Jr.",Александр Александрович Скворцов,M,1966,RU,M
+514,"Korniyenko, Mikhail",Михаил Борисович Корниенко,M,1960,RU,C
+515,"Dutton, James P.","Dutton, James P.",M,1968,US,M
+516,"Metcalf-Lindenburger, Dorothy M.","Metcalf-Lindenburger, Dorothy M.",F,1975,US,C
+517,"Yamazaki, Naoko",山崎直子,F,1970,JP,C
+519,"Skripochka, Oleg",Олег Иванович Скрипочка,M,1969,RU,C
+521,"Samokutyayev, Aleksandr",Александр Михайлович Самокутяев,M,1970,RU,M
+522,"Borisenko, Andrei",Андрей Иванович Борисенко,M,1964,RU,M
+526,"Revin, Sergei",Сергей Николаевич Ревин,M,1966,RU,C
+527,"Liu, Wang",刘旺,M,1969,CN,M
+528,"Liu, Yang",刘洋,F,1978,CN,M
+529,"Novitski, Oleg",Олег Викторович Новицкий,M,1971,RU,M
+530,"Tarelkin, Yevgeni",Евгений Игоревич Тарелкин,M,1974,RU,M
+532,"Parmitano, Luca","Parmitano, Luca",M,1976,IT,M
+533,"Zhang, Xiaoguang",张晓光,M,1968,CN,M
+534,"Wang, Yapi",王亚平,M,1980,CN,M
+539,"Gerst, Alexander","Gerst, Alexander",M,1976,DE,C
+540,"Serova, Yelena",Елена Олеговна Серова,F,1976,RU,C
+544,"Mogensen, Andreas","Mogensen, Andreas",M,1976,DK,C
+545,Aidyn (Aydyn) Akanovich Aimbetov,Айдын Ақанұлы Айымбетов,M,1972,KZ,M
+546,"Peake, Timothy Nigel","Peake, Timothy Nigel",M,1972,GB,M
+547,"Ovchinin, Aleksey",Алексей Николаевич Овчинин,M,1971,RU,M
+550,"Chen, Dong",陈冬,M,1978,CN,M
+557,"Prokopyev, Sergei",Сергей Валерьевич Прокопьев,M,1975,RU,M
+558,"Auñón-Chancellor, Serena","Auñón-Chancellor, Serena",F,1976,US,C
+559,"Hague, Tyler","Hague, Tyler",M,1975,US,M
+560,"Saint-Jaques, David","Saint-Jaques, David",M,1970,CA,C
+561,"McClain, Anne Charlotte","McClain, Anne Charlotte",F,1979,US,M
