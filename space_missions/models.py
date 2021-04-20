@@ -1,4 +1,6 @@
+from typing import Sequence
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils.translation import gettext_lazy as _
 from django.db import models
 
 
@@ -7,7 +9,20 @@ from django.db import models
 class Country(models.Model):
     code = models.CharField(max_length=2, primary_key=True)
     name = models.CharField(max_length=40)
-    continent = models.TextChoices('Continent', 'Africa Americas Asia Europe Oceania')
+
+    class Cont(models.TextChoices):
+        AFRICA     = 'Africa', _('Africa')
+        AMERICAS   = 'Americas', _('Americas')
+        ASIA       = 'Asia',  _('Asia')
+        EUROPE     = 'Europe', _('Europe')
+        OCEANIA    = 'Oceania', _('Oceania')
+
+
+    continent = models.CharField(max_length=10, choices=Cont.choices, default=Cont.AMERICAS)
+
+
+    def __str__(self):
+        return self.code + " " + self.name + " " + self.continent
 
 
 class Astronaut(models.Model):
@@ -15,20 +30,21 @@ class Astronaut(models.Model):
     name = models.CharField(max_length=40)
     original_name = models.CharField(max_length=40)
 
-    SEX_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female'),
-        ('U', 'Unspecified'))
+    class SexOptions(models.TextChoices):
+        MALE              = 'M', _('Male')
+        FEMALE            = 'F', _('Female')
+        UNSPECIFIED       = 'U',  _('Unspecified')
 
-    BACKGROUND_CHOICES = (
-        ('M', 'Military'),
-        ('C', 'Civilian'),
-        ('U', 'Unspecified'))
+    class BackGroundOptions(models.TextChoices):
+        MALE              = 'M', _('Military')
+        FEMALE            = 'C', _('Civilian')
+        UNSPECIFIED       = 'U',  _('Unspecified')
 
-    sex = models.CharField(max_length=1, choices=SEX_CHOICES)
-    background = models.CharField(max_length=1, choices=BACKGROUND_CHOICES)
+
+    sex           = models.CharField(max_length=1, choices=SexOptions.choices, default=SexOptions.UNSPECIFIED)
+    background    = models.CharField(max_length=1, choices=BackGroundOptions.choices,  default=BackGroundOptions.UNSPECIFIED)
     year_of_birth = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2010)])
-    nationality = models.ForeignKey('space_missions.Country', on_delete=models.CASCADE)
+    nationality   = models.ForeignKey('space_missions.Country', on_delete=models.CASCADE)
 
 """
 class Selection(models.Model):
