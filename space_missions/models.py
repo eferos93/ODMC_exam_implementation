@@ -22,7 +22,7 @@ class Country(models.Model):
 
 
     def __str__(self):
-        return self.code + " " + self.name + " " + self.continent
+        return str(self.code) + " " + str(self.name) + " " + str(self.continent)
 
 
 class Astronaut(models.Model):
