@@ -8,7 +8,7 @@ from django.utils import timezone
 
 class Country(models.Model):
     code = models.CharField(max_length=2, primary_key=True)
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, null=True, blank=True)
 
     class Continent(models.TextChoices):
         AFRICA = 'Africa', _('Africa')
@@ -16,6 +16,7 @@ class Country(models.Model):
         ASIA = 'Asia', _('Asia')
         EUROPE = 'Europe', _('Europe')
         OCEANIA = 'Oceania', _('Oceania')
+        ANTARCTICA = 'Antarctica', _('Antarctica')
 
     continent = models.CharField(max_length=10, choices=Continent.choices, default=Continent.AMERICAS)
 
@@ -170,12 +171,9 @@ class VehicleStage(models.Model):
 
 class Organisation(models.Model):
     code = models.CharField(max_length=256, primary_key=True)
-    U_code = models.CharField(max_length=256, null=True)
     name = models.CharField(max_length=256, null=True)
     english_name = models.CharField(max_length=256, null=True)
     location = models.CharField(max_length=256, null=True)
-    t_start = models.DateField(null=True, blank=True)
-    t_stop = models.DateField(null=True, blank=True)
     country = models.ForeignKey('space_missions.Country',
                                 on_delete=models.SET_NULL, null=True, blank=True)
     longitude = models.FloatField(null=True)

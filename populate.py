@@ -8,7 +8,7 @@ django.setup()
 
 import pandas as pd
 
-from space_missions.models import (Country, Astronaut)
+from space_missions.models import (Country, Astronaut, Organisation)
 
 
 class Populate(ABC):
@@ -45,7 +45,6 @@ class PopulateAstronaut(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        print(fields)
         return self.model(id=fields[0], name=fields[1],
                           original_name=fields[2], sex=fields[3],
                           year_of_birth=fields[4],
@@ -53,7 +52,19 @@ class PopulateAstronaut(Populate):
                           background=fields[6])
 
 
+class PopulateOrganisation(Populate):
+    def __init__(self, data_frame_link, model):
+        super().__init__(data_frame_link, model)
+
+    def create_instance_of_model(self, fields):
+        print(fields)
+        return self.model(code=fields[0],
+                          name=fields[1], location=fields[2], longitude=fields[3],
+                          latitude=fields[4], parent_organisation=None, english_name=fields[6],
+                          country=Country.objects.get(code__exact=fields[7])
+                          )
 
 
 # PopulateCountry('Data/Country.csv', Country).populate()
 # PopulateAstronaut('Data/Astronaut.csv', Astronaut).populate()
+PopulateOrganisation('Data/Organisation.csv', Organisation).populate()
