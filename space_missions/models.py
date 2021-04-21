@@ -10,14 +10,14 @@ class Country(models.Model):
     code = models.CharField(max_length=2, primary_key=True)
     name = models.CharField(max_length=40)
 
-    class Cont(models.TextChoices):
+    class Continent(models.TextChoices):
         AFRICA = 'Africa', _('Africa')
         AMERICAS = 'Americas', _('Americas')
         ASIA = 'Asia', _('Asia')
         EUROPE = 'Europe', _('Europe')
         OCEANIA = 'Oceania', _('Oceania')
 
-    continent = models.CharField(max_length=10, choices=Cont.choices, default=Cont.AMERICAS)
+    continent = models.CharField(max_length=10, choices=Continent.choices, default=Continent.AMERICAS)
 
     def __str__(self):
         return str(self.code) + " " + str(self.name) + " " + str(self.continent)
@@ -33,16 +33,16 @@ class Astronaut(models.Model):
         FEMALE = 'F', _('Female')
         UNSPECIFIED = 'U', _('Unspecified')
 
-    class BackGroundOptions(models.TextChoices):
+    class BackgroundOptions(models.TextChoices):
         MALE = 'M', _('Military')
         FEMALE = 'C', _('Civilian')
         UNSPECIFIED = 'U', _('Unspecified')
 
     sex = models.CharField(max_length=1, choices=SexOptions.choices, default=SexOptions.UNSPECIFIED)
-    background = models.CharField(max_length=1, choices=BackGroundOptions.choices,
-                                  default=BackGroundOptions.UNSPECIFIED)
+    background = models.CharField(max_length=1, choices=BackgroundOptions.choices,
+                                  default=BackgroundOptions.UNSPECIFIED)
     year_of_birth = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2010)])
-    nationality = models.ForeignKey('space_missions.Country', on_delete=models.CASCADE)
+    nationality = models.ForeignKey('space_missions.Country', on_delete=models.SET_NULL, null=True, blank=True)
 
 
 class Selection(models.Model):
