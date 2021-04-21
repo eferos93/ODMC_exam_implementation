@@ -27,15 +27,15 @@ class PopulateCountry(Populate):
             )
         )
 
-    @classmethod
-    def update(cls):
-        print([field.name for field in Country._meta.get_fields()])
-        Country.objects.bulk_update(
-            list(
-                map(cls.create_country, cls.collapse_rows_to_list(pd.read_csv('Data/Country.csv')))
-            ),
-            fields=[field.name for field in Country._meta.get_fields()]
-        )
+    # @classmethod
+    # def update(cls):
+    #     print([field.name for field in Country._meta.get_fields()])
+    #     Country.objects.bulk_update(
+    #         list(
+    #             map(cls.create_country, cls.collapse_rows_to_list(pd.read_csv('Data/Country.csv')))
+    #         ),
+    #         fields=[field.name for field in Country._meta.get_fields()]
+    #     )
 
 
 class PopulateAstronaut(Populate):
@@ -56,5 +56,5 @@ class PopulateAstronaut(Populate):
             )
         )
 
-PopulateCountry.update()
-# PopulateAstronaut.populate()
+
+PopulateAstronaut.populate()
