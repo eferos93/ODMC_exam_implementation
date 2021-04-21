@@ -63,7 +63,22 @@ class PopulateOrganisation(Populate):
                           country=Country.objects.get(code__exact=fields[7])
                           )
 
+    def update_parent_organisation(self, fields):
+        print(fields)
+        model_entry = self.model.objects.get(pk=fields[0])
+        if fields[5] is not None:
+            model_entry.parent_organisation = self.model.objects.get(pk=fields[5])
+            model_entry.save()
+        # model_entry.parent_organisation = self.model.objects.get(pk=fields[5]) if (fields[5] != 'nan' or fields[5] is not None) else None
+
+    def update(self):
+        data_frame = pd.read_csv(self.data_frame_link)
+        # map(self.update_parent_organisation, self.collapse_rows_to_list(pd.read_csv(self.data_frame_link)))
+        for _, value in self.collapse_rows_to_list(data_frame[data_frame.parent.notnull()]).items():
+            self.update_parent_organisation(value)
+
 
 # PopulateCountry('Data/Country.csv', Country).populate()
 # PopulateAstronaut('Data/Astronaut.csv', Astronaut).populate()
 # PopulateOrganisation('Data/Organisation.csv', Organisation).populate()
+PopulateOrganisation('Data/Organisation.csv', Organisation).update()

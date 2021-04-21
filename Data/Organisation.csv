@@ -759,7 +759,7 @@ CLYDE,Clyde Space Ltd.,"Glasgow, Scotland",-4.25,55.86,,,GB
 CMA,zhongguo qixiang ju,Beijing,116.38,39.92,,China Meteorological Administration,CN
 CMIK,Joseon-inmingun Jeonlyag loketeu gun,Pyongyang,0.02,39.02,KPA,"Strategic Rocket Division, Ministry of People's Armed Forces",ES
 CMMB,Zhongguo yidong duomeiti guangbo konggu youxian gongsi,Hong Kong,114.2,22.3,,CMMB Vision Holdings (China Mobile Multimedia Broadcasting),HK
-CMSEO,zhongguo zairen hangtian gongcheng bangonghsi,Beijing,116.38,39.92,ZZB,China Manned Space Engineering Office,CN
+CMSEO,zhongguo zairen hangtian gongcheng bangonghsi,Beijing,116.38,39.92,,China Manned Space Engineering Office,CN
 CNAE,Comissao Nacional de Atividades Espaciais,Rio de Janeiro,-43.2,-22.91,,Space Activities Comission,BR
 CNCOS,Guofang kexue jishi gongye weiyuanhui,Beijing,116.38,39.92,,"Commission for Science, Tech. and Industry for National Defe",CN
 CNES,"Centre Nationale d'Etudes Spatiales, Paris",Paris,2.3,48.86,,National Space Research Center,FR
@@ -1783,7 +1783,7 @@ MSGC,"Montana Space Grant Consortium, Montana State University, Bozeman","Bozema
 MSSL,Mullard Space Science Laboratory,"Dorking, Surrey",-0.33,51.23,UCL,,GB
 MSU,"Montana State University, Bozeman","Bozeman, Montana",-111.05,45.67,,,US
 MSUKY,Morehead State University,"Morehead, Kentucky",-83.43,38.19,,,US
-MSV,Mobile Satellite Ventures L.P.,"Reston, Virginia",-77.35,38.95,MOTI/TMI,,US
+MSV,Mobile Satellite Ventures L.P.,"Reston, Virginia",-77.35,38.95,,,US
 MSVCA,Mobile Satellite Ventures L.P.,"Ottawa:Gloucester, Ontario",-75.61,45.44,MSV,,CA
 MSVYAZ,MinSvyazi SSR Soyuzniy Uzel Radioveshchaniya i Radiosvyazi No. 9,Moskva,37.62,55.75,,Ministry of Comms. Union Radio Comms.,RU
 MTF,NASA Mississippi Test Facility,"Pearl River, Mississippi",-89.6,30.62,NASA,,US
@@ -2971,7 +2971,7 @@ XIOPM,Xi'an guangxe jingmi jixie yanjiu suo,"Xi'an, Shaanxi",108.95,34.27,,Xian 
 XJRY,Beijing xingji rongyao kongjian keji youxian gongsi,Beijing,116.38,39.92,,Beijing Interstellar Glory Space Tech. Co. Ltd.,CN
 XMR,XM Satellite Radio Holdings (XM),"Washington, DC",-77.02,38.9,,,US
 XMRS,XM Satellite Radio Holdings (Sirius XM),"Washington, DC",-77.02,38.9,SIRX,,US
-XTAR,XTAR LLC  (Hisdesat/Loral),"Rockville, Maryland",-77.15,39.08,HISD/LOR,,US
+XTAR,XTAR LLC  (Hisdesat/Loral),"Rockville, Maryland",-77.15,39.08,,,US
 XYUN,Sanjiang Hangtian Xingyun Keji YG,"Hankou, Wuhan, Hubei",114.27,30.58,SANJ9,Xingyun Company,CN
 XZTIA,Xi'an zhongke tianta keji gufen YG,"Xi'an, Shaanxi",108.95,34.27,,,CN
 YAHBR,Yahsat Brasil,Rio de Janeiro,-43.2,-22.91,ALYAH,,BR
