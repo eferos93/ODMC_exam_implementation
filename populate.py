@@ -57,7 +57,6 @@ class PopulateOrganisation(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        print(fields)
         return self.model(code=fields[0],
                           name=fields[1], location=fields[2], longitude=fields[3],
                           latitude=fields[4], parent_organisation=None, english_name=fields[6],
@@ -67,4 +66,4 @@ class PopulateOrganisation(Populate):
 
 # PopulateCountry('Data/Country.csv', Country).populate()
 # PopulateAstronaut('Data/Astronaut.csv', Astronaut).populate()
-PopulateOrganisation('Data/Organisation.csv', Organisation).populate()
+# PopulateOrganisation('Data/Organisation.csv', Organisation).populate()
