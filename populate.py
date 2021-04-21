@@ -1,20 +1,26 @@
 import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ODMC_exam_implementation.settings')
 import django
-import pandas as pd
-
-from space_missions.models import Country
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'models.settings')
 django.setup()
+
+import pandas as pd
+from space_missions.models import Country
 
 
 # COUNTRY
-def create_country(fields):
-    return Country(code=fields[0], name=fields[1], continent=fields[2])
+class PopulateCountry:
+    @classmethod
+    def create_country(cls, fields):
+        return Country(code=fields[0], name=fields[1], continent=fields[2])
 
+    @classmethod
+    def collapse_rows_to_list(cls, data_frame):
+        return pd.Series(data_frame.values.tolist())
 
-def collapse_rows_to_list(data_frame):
-    return pd.Series(data_frame.values.tolist())
-
-
-Country.objects.bulk_create(list(map(create_country, collapse_rows_to_list(pd.read_csv('Data/Country.csv')))))
+    @classmethod
+    def populate(cls):
+        Country.objects.bulk_create(
+            list(
+                map(cls.create_country, cls.collapse_rows_to_list(pd.read_csv('Data/Country.csv')))
+            )
+        )
