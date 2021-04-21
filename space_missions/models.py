@@ -102,10 +102,12 @@ class LaunchVehicle(models.Model):
     name = models.CharField(max_length=256, primary_key=True)
     variant = models.CharField(max_length=256)
     alias = models.CharField(max_length=256)
-    min_stage = models.IntegerField()
-    max_stage = models.IntegerField()
-    launch_mass = models.FloatField()
-    TO_thrust = models.FloatField()
+    min_stage = models.IntegerField(null=True)
+    max_stage = models.IntegerField(null=True)
+    launch_mass = models.FloatField(null=True)
+    TO_thrust = models.FloatField(null=True)
+    length = models.FloatField(null=True)
+    diameter = models.FloatField(null=True)
 
     vehicle_classes = [
         ('D', 'Extraterrestrial Deep Space Launch'),
@@ -124,7 +126,6 @@ class LaunchVehicle(models.Model):
     vehicle_class = models.CharField(max_length=1,
                                      choices=vehicle_classes,
                                      default='O')
-    measures = models.ForeignKey('space_missions.Measure', on_delete=models.SET_NULL, null=True, blank=True)
     stages = models.ManyToManyField('space_missions.Stage',
                                     through='VehicleStage', blank=True)
     manufacturer = models.ForeignKey('space_missions.Organisation',
@@ -133,19 +134,14 @@ class LaunchVehicle(models.Model):
 
 class Stage(models.Model):
     name = models.CharField(max_length=256, primary_key=True)
-    dry_mass = models.FloatField()
-    launch_mass = models.FloatField()
-    thrust = models.FloatField()
-    burn_duration = models.FloatField()
+    dry_mass = models.FloatField(null=True)
+    launch_mass = models.FloatField(null=True)
+    thrust = models.FloatField(null=True)
+    burn_duration = models.FloatField(null=True)
     manufacturer = models.ForeignKey('space_missions.Organisation',
                                      on_delete=models.SET_NULL, null=True, blank=True)
-    measures = models.ForeignKey('space_missions.Measure',
-                                 on_delete=models.SET_NULL, null=True, blank=True)
-
-
-class Measure(models.Model):
-    length = models.FloatField()
-    diameter = models.FloatField()
+    length = models.FloatField(null=True)
+    diameter = models.FloatField(null=True)
 
 
 class VehicleStage(models.Model):
@@ -174,19 +170,14 @@ class VehicleStage(models.Model):
 
 class Organisation(models.Model):
     code = models.CharField(max_length=256, primary_key=True)
-    U_code = models.CharField(max_length=256)
-    name = models.CharField(max_length=256)
-    english_name = models.CharField(max_length=256)
-    location = models.CharField(max_length=256)
-    t_start = models.DateField()
-    t_stop = models.DateField()
+    U_code = models.CharField(max_length=256, null=True)
+    name = models.CharField(max_length=256, null=True)
+    english_name = models.CharField(max_length=256, null=True)
+    location = models.CharField(max_length=256, null=True)
+    t_start = models.DateField(null=True, blank=True)
+    t_stop = models.DateField(null=True, blank=True)
     country = models.ForeignKey('space_missions.Country',
                                 on_delete=models.SET_NULL, null=True, blank=True)
-    coordinates = models.ForeignKey('space_missions.Coordinate',
-                                    on_delete=models.SET_NULL, null=True, blank=True)
+    longitude = models.FloatField(null=True)
+    latitude = models.FloatField(null=True)
     parent_organisation = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
-
-
-class Coordinate(models.Model):
-    longitude = models.FloatField()
-    latitude = models.FloatField()
