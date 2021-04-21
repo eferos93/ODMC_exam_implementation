@@ -1,6 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 
 # Create your models here.
@@ -47,8 +48,9 @@ class Astronaut(models.Model):
 class Selection(models.Model):
     # NB: Una missione può avere + programmi di selezione
     name = models.CharField(max_length=40, primary_key=True)
-    missions = models.ManyToManyField('space_missions.Mission')
+    missions = models.ManyToManyField('space_missions.Mission', on_delete=models.CASCADE)
     astronauts = models.ManyToManyField('space_missions.Astronaut',
+                                        on_delete=models.SET_NULL,
                                         through='AstronautSelection',
                                         related_name='selections')
 
@@ -59,7 +61,9 @@ class AstronautSelection(models.Model):
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     selection = models.ForeignKey('space_missions.Selection', on_delete=models.CASCADE)
-    year_of_selection = models.PositiveSmallIntegerField()
+    year_of_selection = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900),
+                                                                     MaxValueValidator(timezone.now().year)]
+                                                         )
 
 
 class AstronautOccupation(models.Model):
@@ -69,19 +73,21 @@ class AstronautOccupation(models.Model):
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     mission = models.ForeignKey('space_missions.Mission', on_delete=models.CASCADE)
     role = models.CharField(max_length=40)
-    year_of_join = models.PositiveSmallIntegerField()
+    year_of_join = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900),
+                                                                MaxValueValidator(timezone.now().year)]
+                                                    )
 
 
 class Launch(models.Model):
     SF_choices = ('Success', 'Fail', 'unknown')
-    type_of_launch_choices = ('Orbital', 'DeepSpaceMission', 'unknown')
+    types_of_launch = ('Orbital', 'DeepSpaceMission', 'unknown')
 
     id = models.CharField(max_length=10, primary_key=True)
     date = models.DateField()
     launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle', on_delete=models.SET_NULL, null=True, blank=True)
     organization = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
     success_or_fail = models.CharField(max_length=20, choices=[(d, d) for d in SF_choices])
-    type_of_launch = models.CharField(max_length=20, choices=[(d, d) for d in type_of_launch_choices])
+    type_of_launch = models.CharField(max_length=20, choices=[(d, d) for d in types_of_launch])
 
 
 class Mission(models.Model):
@@ -119,7 +125,7 @@ class LaunchVehicle(models.Model):
     vehicle_class = models.CharField(max_length=1,
                                      choices=vehicle_classes,
                                      default='O')
-    measures = models.ForeignKey('space_missions.Measure', on_delete=models.SET_NULL, null=True)
+    measures = models.ForeignKey('space_missions.Measure', on_delete=models.SET_NULL, null=True, blank=True)
     stages = models.ManyToManyField('space_missions.Stage',
                                     on_delete=models.SET_NULL,
                                     through='VehicleStage', null=True, blank=True)
