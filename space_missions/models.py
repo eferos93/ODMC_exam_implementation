@@ -93,7 +93,7 @@ class Mission(models.Model):
     launch = models.OneToOneField('space_missions.Launch', on_delete=models.CASCADE)
     name = models.CharField(max_length=30, primary_key=True)
     astronauts = models.ManyToManyField('space_missions.Astronaut',
-                                        null=True, blank=True,
+                                        blank=True,
                                         through='AstronautOccupation',
                                         related_name='missions')
 
@@ -126,9 +126,9 @@ class LaunchVehicle(models.Model):
                                      default='O')
     measures = models.ForeignKey('space_missions.Measure', on_delete=models.SET_NULL, null=True, blank=True)
     stages = models.ManyToManyField('space_missions.Stage',
-                                    through='VehicleStage', null=True, blank=True)
+                                    through='VehicleStage', blank=True)
     manufacturer = models.ForeignKey('space_missions.Organisation',
-                                     on_delete=models.SET_NULL, null=True, blank=True)
+                                     on_delete=models.SET_NULL, blank=True, null=True)
 
 
 class Stage(models.Model):
@@ -168,8 +168,8 @@ class VehicleStage(models.Model):
         ('F', 'Fairing')
     ]
 
-    stage_number = models.CharField(max_length=1, choices=stage_numbers)
-    dummy = models.CharField(max_length=3, choices=['yes', 'no'])
+    stage_number = models.CharField(max_length=2, choices=stage_numbers)
+    dummy = models.CharField(max_length=3, choices=[(value, value) for value in ['yes', 'no']])
 
 
 class Organisation(models.Model):
