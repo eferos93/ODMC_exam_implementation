@@ -145,6 +145,20 @@ class Stage(models.Model):
     diameter = models.FloatField(null=True)
 
 
+class Engine(models.Model):
+    class Meta:
+        unique_together = [('name', 'manufacturer')]
+
+    name = models.CharField(max_length=256)
+    manufacturer = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
+    mass = models.FloatField(null=True, blank=True)
+    impulse = models.FloatField(null=True, blank=True)
+    thrust = models.FloatField(null=True, blank=True)
+    isp = models.FloatField(null=True, blank=True)
+    burn_duration = models.FloatField(null=True, blank=True)
+    chambers = models.PositiveSmallIntegerField(null=True, blank=True)
+
+
 class VehicleStage(models.Model):
     class Meta:
         unique_together = [('launch_vehicle', 'stage')]
