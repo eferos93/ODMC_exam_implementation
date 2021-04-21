@@ -48,9 +48,8 @@ class Astronaut(models.Model):
 class Selection(models.Model):
     # NB: Una missione può avere + programmi di selezione
     name = models.CharField(max_length=40, primary_key=True)
-    missions = models.ManyToManyField('space_missions.Mission', on_delete=models.CASCADE)
+    missions = models.ManyToManyField('space_missions.Mission')
     astronauts = models.ManyToManyField('space_missions.Astronaut',
-                                        on_delete=models.SET_NULL,
                                         through='AstronautSelection',
                                         related_name='selections')
 
@@ -91,10 +90,10 @@ class Launch(models.Model):
 
 
 class Mission(models.Model):
-    launch = models.OneToOneField('space_missions.models.Launch', on_delete=models.CASCADE)
+    launch = models.OneToOneField('space_missions.Launch', on_delete=models.CASCADE)
     name = models.CharField(max_length=30, primary_key=True)
     astronauts = models.ManyToManyField('space_missions.Astronaut',
-                                        on_delete=models.SET_NULL, null=True, blank=True,
+                                        null=True, blank=True,
                                         through='AstronautOccupation',
                                         related_name='missions')
 
@@ -127,7 +126,6 @@ class LaunchVehicle(models.Model):
                                      default='O')
     measures = models.ForeignKey('space_missions.Measure', on_delete=models.SET_NULL, null=True, blank=True)
     stages = models.ManyToManyField('space_missions.Stage',
-                                    on_delete=models.SET_NULL,
                                     through='VehicleStage', null=True, blank=True)
     manufacturer = models.ForeignKey('space_missions.Organisation',
                                      on_delete=models.SET_NULL, null=True, blank=True)
