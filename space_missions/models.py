@@ -120,12 +120,12 @@ class LaunchVehicle(models.Model):
     vehicle_class = models.CharField(max_length=1,
                                      choices=vehicle_classes,
                                      default='O')
-    measures = models.ForeignKey('space_missions.Measure', on_delete=models.SET_NULL)
+    measures = models.ForeignKey('space_missions.Measure', on_delete=models.SET_NULL, null=True)
     stages = models.ManyToManyField('space_missions.Stage',
                                     on_delete=models.SET_NULL,
-                                    through='VehicleStage', null=True)
+                                    through='VehicleStage', null=True, blank=True)
     manufacturer = models.ForeignKey('space_missions.Organisation',
-                                     on_delete=models.SET_NULL, null=True)
+                                     on_delete=models.SET_NULL, null=True, blank=True)
 
 
 class Stage(models.Model):
@@ -135,9 +135,9 @@ class Stage(models.Model):
     thrust = models.FloatField()
     burn_duration = models.FloatField()
     manufacturer = models.ForeignKey('space_missions.Organisation',
-                                     on_delete=models.SET_NULL)
+                                     on_delete=models.SET_NULL, null=True, blank=True)
     measures = models.ForeignKey('space_missions.Measure',
-                                 on_delete=models.SET_NULL)
+                                 on_delete=models.SET_NULL, null=True, blank=True)
 
 
 class Measure(models.Model):
@@ -178,9 +178,9 @@ class Organisation(models.Model):
     t_start = models.DateField()
     t_stop = models.DateField()
     country = models.ForeignKey('space_missions.Country',
-                                on_delete=models.CASCADE, null=True)
+                                on_delete=models.SET_NULL, null=True, blank=True)
     coordinates = models.ForeignKey('space_missions.Coordinate',
-                                    on_delete=models.SET_NULL, null=True)
+                                    on_delete=models.SET_NULL, null=True, blank=True)
     parent_organisation = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
 
 
