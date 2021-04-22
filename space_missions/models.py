@@ -57,7 +57,7 @@ class Selection(models.Model):
 
 class AstronautSelection(models.Model):
     class Meta:
-        unique_together = [('astronaut', 'selection')]
+        unique_together = [('astronaut', 'selection', 'year_of_selection')]
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     selection = models.ForeignKey('space_missions.Selection', on_delete=models.CASCADE)
