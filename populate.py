@@ -70,11 +70,9 @@ class PopulateOrganisation(Populate):
         if fields[5] is not None:
             model_entry.parent_organisation = self.model.objects.get(pk=fields[5])
             model_entry.save()
-        # model_entry.parent_organisation = self.model.objects.get(pk=fields[5]) if (fields[5] != 'nan' or fields[5] is not None) else None
 
     def update(self):
         data_frame = pd.read_csv(self.data_frame_link)
-        # map(self.update_parent_organisation, self.collapse_rows_to_list(pd.read_csv(self.data_frame_link)))
         for _, value in self.collapse_rows_to_list(data_frame[data_frame.parent.notnull()]).items():
             self.update_parent_organisation(value)
 
@@ -149,6 +147,7 @@ class PopulateAstronautSelection(Populate):
         return self.model(astronaut=Astronaut.objects.get(pk__exact=fields[0]),
                           selection=Selection.objects.get(pk__exact=fields[1]),
                           year_of_selection=fields[2])
+
 # DONE --------------------------------------------------
 # PopulateCountry('Data/Country.csv', Country).populate()
 # PopulateAstronaut('Data/Astronaut.csv', Astronaut).populate()
@@ -162,7 +161,6 @@ class PopulateAstronautSelection(Populate):
 # PopulateStage('Data/Stage.csv', Stage).populate()
 # PopulateAstronautSelection('Data/AstronautSelection.csv', AstronautSelection).populate()
 # ---------------------------------------------------
-
 
 
 
