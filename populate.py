@@ -10,7 +10,7 @@ django.setup()
 import pandas as pd
 
 from space_missions.models import (Country, Astronaut, Organisation, Engine, Mission, Launch, Selection, Stage,
-                                   AstronautSelection)
+                                   AstronautSelection, AstronautOccupation)
 
 
 class Populate(ABC):
@@ -148,6 +148,17 @@ class PopulateAstronautSelection(Populate):
                           selection=Selection.objects.get(pk__exact=fields[1]),
                           year_of_selection=fields[2])
 
+
+class PopulateAstronautOccupation(Populate):
+    def __init__(self, data_frame_link, model):
+        super().__init__(data_frame_link, model)
+
+    def create_instance_of_model(self, fields):
+        return self.model(astronaut=Astronaut.objects.get(pk__exact=fields[0]),
+                          mission=Mission.objects.get(pk__exact=fields[1]),
+                          role=fields[2], year_of_join=fields[3])
+
+
 # DONE --------------------------------------------------
 # PopulateCountry('Data/Country.csv', Country).populate()
 # PopulateAstronaut('Data/Astronaut.csv', Astronaut).populate()
@@ -160,9 +171,5 @@ class PopulateAstronautSelection(Populate):
 # PopulateSelection('Data/Selection.csv', Selection).update_mission_field()
 # PopulateStage('Data/Stage.csv', Stage).populate()
 # PopulateAstronautSelection('Data/AstronautSelection.csv', AstronautSelection).populate()
+# PopulateAstronautOccupation('Data/AstronautOccupation.csv', AstronautOccupation).populate()
 # ---------------------------------------------------
-
-
-
-
-

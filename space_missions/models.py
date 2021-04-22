@@ -68,7 +68,7 @@ class AstronautSelection(models.Model):
 
 class AstronautOccupation(models.Model):
     class Meta:
-        unique_together = [('astronaut', 'mission')]
+        unique_together = [('astronaut', 'mission', 'role', 'year_of_join')]
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     mission = models.ForeignKey('space_missions.Mission', on_delete=models.CASCADE)
