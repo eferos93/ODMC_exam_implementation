@@ -101,14 +101,12 @@ class Mission(models.Model):
 
 class LaunchVehicle(models.Model):
     name = models.CharField(max_length=256, primary_key=True)
-    variant = models.CharField(max_length=256)
-    alias = models.CharField(max_length=256)
-    min_stage = models.IntegerField(null=True)
-    max_stage = models.IntegerField(null=True)
-    launch_mass = models.FloatField(null=True)
-    TO_thrust = models.FloatField(null=True)
-    length = models.FloatField(null=True)
-    diameter = models.FloatField(null=True)
+    min_stage = models.IntegerField(null=True, blank=True)
+    max_stage = models.IntegerField(null=True, blank=True)
+    launch_mass = models.FloatField(null=True, blank=True)
+    TO_thrust = models.FloatField(null=True, blank=True)
+    length = models.FloatField(null=True, blank=True)
+    diameter = models.FloatField(null=True, blank=True)
 
     vehicle_classes = [
         ('D', 'Extraterrestrial Deep Space Launch'),
@@ -160,7 +158,7 @@ class Engine(models.Model):
 
 class VehicleStage(models.Model):
     class Meta:
-        unique_together = [('launch_vehicle', 'stage')]
+        unique_together = [('launch_vehicle', 'stage', 'stage_number', 'dummy')]
 
     launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle',
                                        on_delete=models.CASCADE)

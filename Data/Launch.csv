@@ -4687,7 +4687,7 @@ launch_id,date,launch_vehicle,organisation,type,success_or_fail
 2017-065,2017-10-14,Soyuz-2-1A,FKA,Orbital,Success
 2017-066,2017-10-15,Atlas V 421,ULAL,Orbital,Success
 2017-067,2017-10-30,Falcon 9,SPX,Orbital,Success
-2017-068,2017-10-31,Minotaur-C 3210,OATK,Orbital,Success
+2017-068,2017-10-31,Minotaur C,OATK,Orbital,Success
 2017-069,2017-11-5,Chang Zheng 3B/YZ-1,CALT,Orbital,Success
 2017-070,2017-11-8,Vega,AE,Orbital,Success
 2017-071,2017-11-12,Antares 230,OSC,Orbital,Success
@@ -4835,7 +4835,7 @@ launch_id,date,launch_vehicle,organisation,type,success_or_fail
 2019-015,2019-03-22,Vega,AE,Orbital,Success
 2019-016,2019-03-28,Electron,RLABN,Orbital,Success
 2019-017,2019-03-31,Chang Zheng 3B,CALT,Orbital,Success
-2019-018,2019-04-1,PSLV-QL,ISRO,Orbital,Success
+2019-018,2019-04-1,,ISRO,Orbital,Success
 2019-019,2019-04-4,Soyuz-2-1A,FKA,Orbital,Success
 2019-020,2019-04-4,Soyuz-ST-B,AE,Orbital,Success
 2019-021,2019-04-11,Falcon Heavy,SPX,Orbital,Success
@@ -4906,7 +4906,7 @@ launch_id,date,launch_vehicle,organisation,type,success_or_fail
 2019-086,2019-12-7,Kuaizhou-1A,EXPACE,Orbital,Success
 2019-087,2019-12-7,Kuaizhou-1A,EXPACE,Orbital,Success
 2019-088,2019-12-11,Soyuz-2-1B,VVKO,Orbital,Success
-2019-089,2019-12-11,PSLV-QL,ISRO,Orbital,Success
+2019-089,2019-12-11,,ISRO,Orbital,Success
 2019-090,2019-12-16,Chang Zheng 3B/YZ-1,CALT,Orbital,Success
 2019-091,2019-12-17,Falcon 9,SPX,Orbital,Success
 2019-092,2019-12-18,Soyuz-ST-A,AE,Orbital,Success

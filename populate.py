@@ -10,7 +10,7 @@ django.setup()
 import pandas as pd
 
 from space_missions.models import (Country, Astronaut, Organisation, Engine, Mission, Launch, Selection, Stage,
-                                   AstronautSelection, AstronautOccupation)
+                                   AstronautSelection, AstronautOccupation, LaunchVehicle, VehicleStage)
 
 
 class Populate(ABC):
@@ -96,6 +96,15 @@ class PopulateLaunch(Populate):
                           organisation=Organisation.objects.get(pk=fields[3]),
                           type_of_launch=fields[4], success_or_fail=fields[5])
 
+    def update_vehicle(self):
+        data_frame = pd.read_csv(self.data_frame_link)
+        for _, row in data_frame.iterrows():
+            launch = self.model.objects.get(pk__exact=row['launch_id'])
+            lv = None if pd.isnull(row['launch_vehicle']) else LaunchVehicle.objects.get(
+                pk__exact=row['launch_vehicle'])
+            launch.launch_vehicle = lv
+            launch.save()
+
 
 class PopulateMission(Populate):
     def __init__(self, data_frame_link, model):
@@ -159,6 +168,30 @@ class PopulateAstronautOccupation(Populate):
                           role=fields[2], year_of_join=fields[3])
 
 
+class PopulateLaunchVehicle(Populate):
+    def __init__(self, data_frame_link, model):
+        super().__init__(data_frame_link, model)
+
+    def create_instance_of_model(self, fields):
+        organisation = None if pd.isnull(fields[1]) else Organisation.objects.get(pk__exact=fields[1])
+        return self.model(name=fields[0],
+                          manufacturer=organisation,
+                          min_stage=fields[2],
+                          max_stage=fields[3], length=fields[4], diameter=fields[5],
+                          launch_mass=fields[6], TO_thrust=fields[7], vehicle_class=fields[8])
+
+
+class PopulateVehicleStage(Populate):
+    def __init__(self, data_frame_link, model):
+        super().__init__(data_frame_link, model)
+
+    def create_instance_of_model(self, fields):
+        stage = None if pd.isnull(fields[2]) else Stage.objects.get(pk__exact=fields[2])
+        return self.model(launch_vehicle=LaunchVehicle.objects.get(pk__exact=fields[0]),
+                          stage_number=fields[1],
+                          stage=stage,
+                          dummy=fields[3])
+
 # DONE --------------------------------------------------
 # PopulateCountry('Data/Country.csv', Country).populate()
 # PopulateAstronaut('Data/Astronaut.csv', Astronaut).populate()
@@ -172,4 +205,7 @@ class PopulateAstronautOccupation(Populate):
 # PopulateStage('Data/Stage.csv', Stage).populate()
 # PopulateAstronautSelection('Data/AstronautSelection.csv', AstronautSelection).populate()
 # PopulateAstronautOccupation('Data/AstronautOccupation.csv', AstronautOccupation).populate()
+# PopulateLaunchVehicle('Data/LaunchVehicle.csv', LaunchVehicle).populate()
+# PopulateLaunch('Data/Launch.csv', Launch).update_vehicle()
+# PopulateVehicleStage('Data/VehicleStage.csv', VehicleStage).populate()
 # ---------------------------------------------------
