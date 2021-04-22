@@ -1,6 +1,5 @@
 import os
 from abc import ABC, abstractmethod
-from django.db.models import Q
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ODMC_exam_implementation.settings')
 import django
@@ -10,7 +9,7 @@ django.setup()
 import pandas as pd
 
 from space_missions.models import (Country, Astronaut, Organisation, Engine, Mission, Launch, Selection, Stage,
-                                   AstronautSelection, AstronautOccupation, LaunchVehicle, VehicleStage)
+                                   LaunchVehicle)
 
 
 class Populate(ABC):
