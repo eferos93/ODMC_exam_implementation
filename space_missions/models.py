@@ -91,7 +91,7 @@ class Launch(models.Model):
 
 
 class Mission(models.Model):
-    launch = models.OneToOneField('space_missions.Launch', on_delete=models.CASCADE)
+    launch = models.OneToOneField('space_missions.Launch', on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=30, primary_key=True)
     astronauts = models.ManyToManyField('space_missions.Astronaut',
                                         blank=True,
@@ -148,7 +148,7 @@ class Stage(models.Model):
 
 
 class Engine(models.Model):
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, primary_key=True)
     manufacturer = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
     mass = models.FloatField(null=True, blank=True)
     impulse = models.FloatField(null=True, blank=True)

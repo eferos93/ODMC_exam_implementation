@@ -132,12 +132,13 @@ class PopulateStage(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        fields[8] = None if pd.isnull(fields[8]) else Engine.objects.get(name__exact=fields[8])
+        fields[8] = None if pd.isnull(fields[8]) else Engine.objects.get(pk__exact=fields[8])
         fields[1] = None if pd.isnull(fields[1]) else Organisation.objects.get(pk__exact=fields[1])
         return self.model(name=fields[0], manufacturer=fields[1],
                           length=fields[2], diameter=fields[3], launch_mass=fields[4],
                           dry_mass=fields[5], thrust=fields[6], burn_duration=fields[7],
                           engine=fields[8])
+
 
 # DONE --------------------------------------------------
 # PopulateCountry('Data/Country.csv', Country).populate()
@@ -151,5 +152,6 @@ class PopulateStage(Populate):
 # PopulateSelection('Data/Selection.csv', Selection).update_mission_field()
 # PopulateStage('Data/Stage.csv', Stage).populate()
 # ---------------------------------------------------
+
 
 
