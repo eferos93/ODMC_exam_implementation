@@ -85,7 +85,7 @@ class Launch(models.Model):
     id = models.CharField(max_length=10, primary_key=True)
     date = models.DateField()
     launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle', on_delete=models.SET_NULL, null=True, blank=True)
-    organization = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
+    organisation = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
     success_or_fail = models.CharField(max_length=20, choices=[(d, d) for d in SF_choices])
     type_of_launch = models.CharField(max_length=20, choices=[(d, d) for d in types_of_launch])
 
@@ -143,12 +143,11 @@ class Stage(models.Model):
                                      on_delete=models.SET_NULL, null=True, blank=True)
     length = models.FloatField(null=True)
     diameter = models.FloatField(null=True)
+    engine = models.ForeignKey('space_missions.Engine', on_delete=models.SET_NULL,
+                               null=True, blank=True)
 
 
 class Engine(models.Model):
-    class Meta:
-        unique_together = [('name', 'manufacturer')]
-
     name = models.CharField(max_length=256)
     manufacturer = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
     mass = models.FloatField(null=True, blank=True)

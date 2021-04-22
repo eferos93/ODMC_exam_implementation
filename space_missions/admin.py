@@ -13,4 +13,5 @@ admin.site.register(models.Organisation)
 admin.site.register(models.Selection)
 admin.site.register(models.Stage)
 admin.site.register(models.VehicleStage)
+admin.site.register(models.Engine)
 
