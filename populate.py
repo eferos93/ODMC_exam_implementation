@@ -96,11 +96,11 @@ class PopulateLaunch(Populate):
                           type_of_launch=fields[4], success_or_fail=fields[5])
 
     def update_vehicle(self):
-        data_frame = pd.read_csv(self.data_frame_link)
-        for _, row in data_frame.iterrows():
+        for _, row in pd.read_csv(self.data_frame_link).iterrows():
             launch = self.model.objects.get(pk__exact=row['launch_id'])
             lv = None if pd.isnull(row['launch_vehicle']) else LaunchVehicle.objects.get(
-                pk__exact=row['launch_vehicle'])
+                pk__exact=row['launch_vehicle']
+            )
             launch.launch_vehicle = lv
             launch.save()
 
@@ -121,9 +121,7 @@ class PopulateSelection(Populate):
         return self.model(name=fields[0])
 
     def populate(self):
-        data_frame = pd.read_csv(self.data_frame_link)
-        data_frame = data_frame['selection'].drop_duplicates()
-        for selection in data_frame:
+        for selection in pd.read_csv(self.data_frame_link)['selection'].drop_duplicates():
             model_instance = self.model(name=selection)
             model_instance.save()
 
@@ -139,12 +137,12 @@ class PopulateStage(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        fields[8] = None if pd.isnull(fields[8]) else Engine.objects.get(pk__exact=fields[8])
-        fields[1] = None if pd.isnull(fields[1]) else Organisation.objects.get(pk__exact=fields[1])
-        return self.model(name=fields[0], manufacturer=fields[1],
+        engine = None if pd.isnull(fields[8]) else Engine.objects.get(pk__exact=fields[8])
+        manufacturer = None if pd.isnull(fields[1]) else Organisation.objects.get(pk__exact=fields[1])
+        return self.model(name=fields[0], manufacturer=manufacturer,
                           length=fields[2], diameter=fields[3], launch_mass=fields[4],
                           dry_mass=fields[5], thrust=fields[6], burn_duration=fields[7],
-                          engine=fields[8])
+                          engine=engine)
 
 
 class PopulateAstronautSelection(Populate):
