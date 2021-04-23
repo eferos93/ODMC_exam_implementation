@@ -1,23 +1,24 @@
-from typing import Sequence
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.utils.translation import gettext_lazy as _
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 
 # Create your models here.
 
 class Country(models.Model):
     code = models.CharField(max_length=2, primary_key=True)
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, null=True, blank=True)
 
-    class Cont(models.TextChoices):
+    class Continent(models.TextChoices):
         AFRICA = 'Africa', _('Africa')
         AMERICAS = 'Americas', _('Americas')
         ASIA = 'Asia', _('Asia')
         EUROPE = 'Europe', _('Europe')
         OCEANIA = 'Oceania', _('Oceania')
+        ANTARCTICA = 'Antarctica', _('Antarctica')
 
-    continent = models.CharField(max_length=10, choices=Cont.choices, default=Cont.AMERICAS)
+    continent = models.CharField(max_length=10, choices=Continent.choices, default=Continent.AMERICAS)
 
     def __str__(self):
         return str(self.code) + " " + str(self.name) + " " + str(self.continent)
@@ -33,16 +34,16 @@ class Astronaut(models.Model):
         FEMALE = 'F', _('Female')
         UNSPECIFIED = 'U', _('Unspecified')
 
-    class BackGroundOptions(models.TextChoices):
+    class BackgroundOptions(models.TextChoices):
         MALE = 'M', _('Military')
         FEMALE = 'C', _('Civilian')
         UNSPECIFIED = 'U', _('Unspecified')
 
     sex = models.CharField(max_length=1, choices=SexOptions.choices, default=SexOptions.UNSPECIFIED)
-    background = models.CharField(max_length=1, choices=BackGroundOptions.choices,
-                                  default=BackGroundOptions.UNSPECIFIED)
+    background = models.CharField(max_length=1, choices=BackgroundOptions.choices,
+                                  default=BackgroundOptions.UNSPECIFIED)
     year_of_birth = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2010)])
-    nationality = models.ForeignKey('space_missions.Country', on_delete=models.CASCADE)
+    nationality = models.ForeignKey('space_missions.Country', on_delete=models.SET_NULL, null=True, blank=True)
 
 
 class Selection(models.Model):
@@ -56,52 +57,56 @@ class Selection(models.Model):
 
 class AstronautSelection(models.Model):
     class Meta:
-        unique_together = [('astronaut', 'selection')]
+        unique_together = [('astronaut', 'selection', 'year_of_selection')]
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     selection = models.ForeignKey('space_missions.Selection', on_delete=models.CASCADE)
-    year_of_selection = models.PositiveSmallIntegerField()
+    year_of_selection = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900),
+                                                                     MaxValueValidator(timezone.now().year)]
+                                                         )
 
 
 class AstronautOccupation(models.Model):
     class Meta:
-        unique_together = [('astronaut', 'mission')]
+        unique_together = [('astronaut', 'mission', 'role', 'year_of_join')]
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     mission = models.ForeignKey('space_missions.Mission', on_delete=models.CASCADE)
     role = models.CharField(max_length=40)
-    year_of_join = models.PositiveSmallIntegerField()
+    year_of_join = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900),
+                                                                MaxValueValidator(timezone.now().year)]
+                                                    )
 
 
 class Launch(models.Model):
     SF_choices = ('Success', 'Fail', 'unknown')
-    type_of_launch_choices = ('Orbital', 'DeepSpaceMission', 'unknown')
+    types_of_launch = ('Orbital', 'DeepSpaceMission', 'unknown')
 
     id = models.CharField(max_length=10, primary_key=True)
     date = models.DateField()
     launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle', on_delete=models.SET_NULL, null=True, blank=True)
-    organization = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
+    organisation = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
     success_or_fail = models.CharField(max_length=20, choices=[(d, d) for d in SF_choices])
-    type_of_launch = models.CharField(max_length=20, choices=[(d, d) for d in type_of_launch_choices])
+    type_of_launch = models.CharField(max_length=20, choices=[(d, d) for d in types_of_launch])
 
 
 class Mission(models.Model):
-    launch = models.OneToOneField('space_missions.models.Launch', on_delete=models.CASCADE)
+    launch = models.OneToOneField('space_missions.Launch', on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=30, primary_key=True)
     astronauts = models.ManyToManyField('space_missions.Astronaut',
-                                        on_delete=models.SET_NULL, null=True, blank=True,
+                                        blank=True,
                                         through='AstronautOccupation',
                                         related_name='missions')
 
 
 class LaunchVehicle(models.Model):
     name = models.CharField(max_length=256, primary_key=True)
-    variant = models.CharField(max_length=256)
-    alias = models.CharField(max_length=256)
-    min_stage = models.IntegerField()
-    max_stage = models.IntegerField()
-    launch_mass = models.FloatField()
-    TO_thrust = models.FloatField()
+    min_stage = models.IntegerField(null=True, blank=True)
+    max_stage = models.IntegerField(null=True, blank=True)
+    launch_mass = models.FloatField(null=True, blank=True)
+    TO_thrust = models.FloatField(null=True, blank=True)
+    length = models.FloatField(null=True, blank=True)
+    diameter = models.FloatField(null=True, blank=True)
 
     vehicle_classes = [
         ('D', 'Extraterrestrial Deep Space Launch'),
@@ -120,34 +125,40 @@ class LaunchVehicle(models.Model):
     vehicle_class = models.CharField(max_length=1,
                                      choices=vehicle_classes,
                                      default='O')
-    measures = models.ForeignKey('space_missions.Measure', on_delete=models.SET_NULL)
     stages = models.ManyToManyField('space_missions.Stage',
-                                    on_delete=models.SET_NULL,
-                                    through='VehicleStage', null=True)
+                                    through='VehicleStage', blank=True)
     manufacturer = models.ForeignKey('space_missions.Organisation',
-                                     on_delete=models.SET_NULL, null=True)
+                                     on_delete=models.SET_NULL, blank=True, null=True)
 
 
 class Stage(models.Model):
     name = models.CharField(max_length=256, primary_key=True)
-    dry_mass = models.FloatField()
-    launch_mass = models.FloatField()
-    thrust = models.FloatField()
-    burn_duration = models.FloatField()
+    dry_mass = models.FloatField(null=True)
+    launch_mass = models.FloatField(null=True)
+    thrust = models.FloatField(null=True)
+    burn_duration = models.FloatField(null=True)
     manufacturer = models.ForeignKey('space_missions.Organisation',
-                                     on_delete=models.SET_NULL)
-    measures = models.ForeignKey('space_missions.Measure',
-                                 on_delete=models.SET_NULL)
+                                     on_delete=models.SET_NULL, null=True, blank=True)
+    length = models.FloatField(null=True)
+    diameter = models.FloatField(null=True)
+    engine = models.ForeignKey('space_missions.Engine', on_delete=models.SET_NULL,
+                               null=True, blank=True)
 
 
-class Measure(models.Model):
-    length = models.FloatField()
-    diameter = models.FloatField()
+class Engine(models.Model):
+    name = models.CharField(max_length=256, primary_key=True)
+    manufacturer = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
+    mass = models.FloatField(null=True, blank=True)
+    impulse = models.FloatField(null=True, blank=True)
+    thrust = models.FloatField(null=True, blank=True)
+    isp = models.FloatField(null=True, blank=True)
+    burn_duration = models.FloatField(null=True, blank=True)
+    chambers = models.PositiveSmallIntegerField(null=True, blank=True)
 
 
 class VehicleStage(models.Model):
     class Meta:
-        unique_together = [('launch_vehicle', 'stage')]
+        unique_together = [('launch_vehicle', 'stage', 'stage_number', 'dummy')]
 
     launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle',
                                        on_delete=models.CASCADE)
@@ -165,25 +176,17 @@ class VehicleStage(models.Model):
         ('F', 'Fairing')
     ]
 
-    stage_number = models.CharField(max_length=1, choices=stage_numbers)
-    dummy = models.CharField(max_length=3, choices=['yes', 'no'])
+    stage_number = models.CharField(max_length=2, choices=stage_numbers)
+    dummy = models.CharField(max_length=3, choices=[(value, value) for value in ['yes', 'no']])
 
 
 class Organisation(models.Model):
     code = models.CharField(max_length=256, primary_key=True)
-    U_code = models.CharField(max_length=256)
-    name = models.CharField(max_length=256)
-    english_name = models.CharField(max_length=256)
-    location = models.CharField(max_length=256)
-    t_start = models.DateField()
-    t_stop = models.DateField()
+    name = models.CharField(max_length=256, null=True)
+    english_name = models.CharField(max_length=256, null=True)
+    location = models.CharField(max_length=256, null=True)
     country = models.ForeignKey('space_missions.Country',
-                                on_delete=models.CASCADE, null=True)
-    coordinates = models.ForeignKey('space_missions.Coordinate',
-                                    on_delete=models.SET_NULL, null=True)
+                                on_delete=models.SET_NULL, null=True, blank=True)
+    longitude = models.FloatField(null=True)
+    latitude = models.FloatField(null=True)
     parent_organisation = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
-
-
-class Coordinate(models.Model):
-    longitude = models.FloatField()
-    latitude = models.FloatField()
