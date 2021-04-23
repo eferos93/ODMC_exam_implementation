@@ -9,7 +9,7 @@ django.setup()
 import pandas as pd
 
 from space_missions.models import (Country, Astronaut, Organisation, Engine, Mission, Launch, Selection, Stage,
-                                   LaunchVehicle)
+                                   LaunchVehicle, AstronautSelection, AstronautOccupation, VehicleStage)
 
 
 class Populate(ABC):
