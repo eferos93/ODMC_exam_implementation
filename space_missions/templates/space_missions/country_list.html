@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Country List</h1>
+  {% if country_list %}
+  <ul>
+    {% for c in country_list %}
+      <li>
+        <a href="{{ c.get_absolute_url }}">{{ c.name }}, {{c.code}}</a> ({{c.continent}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no countries in the library.</p>
+  {% endif %} 
+{% endblock %}
+
+<!-- The view passes the context (list of books) by default as object_list and book_list aliases; either will work. -->

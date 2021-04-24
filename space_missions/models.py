@@ -2,6 +2,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from django.urls import reverse  # To generate URLS by reversing URL pattern
 
 
 # Create your models here.
@@ -22,6 +23,14 @@ class Country(models.Model):
 
     def __str__(self):
         return str(self.code) + " " + str(self.name) + " " + str(self.continent)
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular book instance."""
+        return reverse('country-detail', args=[str(self.code)])
+    
+    class Meta:
+        ordering = ['name']
+
 
 
 class Astronaut(models.Model):

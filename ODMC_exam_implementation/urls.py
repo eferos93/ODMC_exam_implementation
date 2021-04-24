@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
+from django.contrib import admin
+
+# Use include() to add URLS from the catalog application and authentication system
+from django.urls import include
+
+#Add URL maps to redirect the base URL to our application
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('spacemissions/', include('space_missions.urls')),
+    path('', RedirectView.as_view(url='spacemissions/', permanent=True)), #Add URL maps to redirect the base URL to our application
 ]
