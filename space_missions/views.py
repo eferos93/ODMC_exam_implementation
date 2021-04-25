@@ -9,3 +9,11 @@ class CountryListView(generic.ListView):
 
 class CountryDetailView(generic.DetailView):
     model = models.Country
+
+
+class AstronautList(generic.ListView):
+    model = models.Astronaut
+
+
+class AstronautDetail(generic.DetailView):
+    model = models.Astronaut

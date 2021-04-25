@@ -45,7 +45,7 @@ class Astronaut(models.Model):
     sex = models.CharField(max_length=1, choices=SexOptions.choices, default=SexOptions.UNSPECIFIED)
     background = models.CharField(max_length=1, choices=BackgroundOptions.choices,
                                   default=BackgroundOptions.UNSPECIFIED)
-    year_of_birth = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2010)])
+    birth_year = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2010)])
     nationality = models.ForeignKey('space_missions.Country', on_delete=models.SET_NULL, null=True, blank=True)
 
 
