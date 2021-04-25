@@ -1,8 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
-from django.urls import reverse  # To generate URLS by reversing URL pattern
+from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
@@ -51,7 +50,6 @@ class Astronaut(models.Model):
 
 
 class Selection(models.Model):
-    # NB: Una missione può avere + programmi di selezione
     name = models.CharField(max_length=40, primary_key=True)
     missions = models.ManyToManyField('space_missions.Mission')
     astronauts = models.ManyToManyField('space_missions.Astronaut',
