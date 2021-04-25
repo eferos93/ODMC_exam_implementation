@@ -17,3 +17,11 @@ class AstronautList(generic.ListView):
 
 class AstronautDetail(generic.DetailView):
     model = models.Astronaut
+
+
+class OrganisationDetail(generic.DetailView):
+    model = models.Organisation
+
+
+class OrganisationList(generic.ListView):
+    model = models.Organisation
