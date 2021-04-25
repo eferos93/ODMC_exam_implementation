@@ -1,0 +1,17 @@
+.sidebar-nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+   
+    list-style: none;
+     /*  background-color:rgb(255, 202, 40); */
+    
+    white-space:nowrap
+}
+
+body, h1,h2,h3,h4,h5,h6 {font-family: "Rubik", sans-serif}
+.my-title{  background-color: black; color: white;}
+.my-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:#4DB6AC;text-align:center;cursor:pointer;white-space:nowrap}
+.my-button:hover{box-shadow:0 8px 16px  0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+.underlined {  text-decoration-line: underline;}
+
+
