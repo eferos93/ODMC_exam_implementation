@@ -2,7 +2,7 @@ code,name,location,longitude,latitude,parent,english_name,country_code
 AAT,Australian Antarctic Territory,"Davis Staton, Princess Elizabeth Land",77.97,-68.58,AU,Australian Antarctic Territory,TF
 AF,Da Afganistan Islami Jomhoriyat,Kabul,69.17,34.53,,"Afghanistan, Islamic Republic of",AF
 AG,Antigua and Barbuda,St John's,-61.85,17.12,,Antigua and Barbuda,AG
-AGUK,Antigua colony,St John's,-61.85,17.12,UK,Antigua and Barbuda,AG
+AGUK,Antigua colony,St John's,-61.85,17.12,GB,Antigua and Barbuda,AG
 AM,Hayastani Hanrapetut'yun,Erevan,44.51,40.18,,Republic of Armenia,AM
 ANTN,Nederlandse Antillen,Willemstad,-68.93,12.12,NL,Netherlands Antilles,CW
 AO,Republica de Angola,Luanda,13.23,-8.84,,Republic of Angola,AO
@@ -13,13 +13,13 @@ AT,"Republik \""Osterreich",Wien,16.37,48.2,,"Austria, Republic of",AT
 AU,Commonwealth of Australia,Canberra,149.12,35.31,,"Australia, Commonwealth of",JP
 AZ,Azerbaycan Respublikasi,Baku,49.88,40.4,,"Azerbaijan, Republic of",AZ
 B,Royaume de Belgique (Koninkrijk Belgie),Brussel,4.35,50.85,,"Belgium, Kingdom of",BE
-BAT,British Antarctic Territory,Rothera,-68.13,-67.57,UK,British Antarctic Territory,AR
+BAT,British Antarctic Territory,Rothera,-68.13,-67.57,GB,British Antarctic Territory,AR
 BB,Barbados,Bridgetown,-59.61,13.11,,Barbados,BB
-BBUK,"Barbados, British self governing colony",Bridgetown,-59.61,13.11,UK,Barbados,BB
+BBUK,"Barbados, British self governing colony",Bridgetown,-59.61,13.11,GB,Barbados,BB
 BD,Ganaprajatantri Bangladesa,Dhaka,90.4,23.72,,"Bangladesh, People's Republic of",BD
 BG,Republika B'lgariya,Sofia,23.33,42.7,,"Bulgaria, Republic of",BG
 BGN,Narodna Republika B'lgariya,Sofia,23.33,42.7,,"Bulgaria, People's Republic of",BG
-BM,UK Overseas Territory of Bermuda,"Hamilton, Bermuda",-64.78,32.93,UK,"Bermuda, UK Overseas Territory",BM
+BM,UK Overseas Territory of Bermuda,"Hamilton, Bermuda",-64.78,32.93,GB,"Bermuda, UK Overseas Territory",BM
 BO,Estado Plurinacional de Bolivia (Bulivya Mamallaqta),La Paz,-68.15,-16.5,,"Bolivia, Plurinational State of",BO
 BR,Republica Federativa do Brasil,Brasilia,-47.88,-15.79,,"Brazil, Federal Republic of",BR
 BS,"Bahamas, Commonwealth of the",Nassau,-77.35,25.06,,"Bahamas, Commonwealth of",BS
@@ -37,7 +37,7 @@ COLP,Republique du Congo (Leopoldville),Leopoldville,15.32,-4.33,,"Congo (Leopol
 CR,Republica de Costa Rica,San Jose,-84.08,9.93,,Republic of Costa Rica,CR
 CSFR,Ceska a Slovenska federativni republica,Praha,14.42,50.08,,Czech and Slovak Federal Republic,CZ
 CSSR,Ceskoslovenska socialisticka republica,Praha,14.42,50.08,,Czechoslovak Socialist Republic,CZ
-CYM,Cayman Islands British Overseas Territory,Georgetown,-81.39,19.3,UK,Cayman Islands BOT,KY
+CYM,Cayman Islands British Overseas Territory,Georgetown,-81.39,19.3,GBCayman Islands BOT,KY
 CZ,Ceska Republika,Praha,14.42,50.08,,Czech Republic,CZ
 D,Bundesrepublik Deutschland,"Bonn, Deutschland  (later Berlin)",7.1,50.73,,"Germany, Federal Republic of",DE
 DD,Deutsche Demokratische Republik,Berlin,13.39,52.52,,German Democratic Republic,DE
@@ -63,7 +63,7 @@ GT,Republica de Guatemala,Nueva Guatemala de la Asuncion,-90.5353,14.6133,,Repub
 GU,Guahan (Guam),"Hagatna, Guam",144.75,13.48,US,Guam Territory,GU
 GUF,Guyane (DOM),Cayenne,-52.33,4.94,F,"French Guiana, Department",GF
 HK,Xianggang Tebie Xingzhengqu,Xianggang,114.2,22.3,CN,"Hong Kong Special Administrative Region, China",HK
-HKUK,Hong Kong Crown Colony,Xianggang,114.2,22.3,UK,Hong Kong Colony,HK
+HKUK,Hong Kong Crown Colony,Xianggang,114.2,22.3,GB,Hong Kong Colony,HK
 HU,Magyar Koztarsasag,Budapest,19.05,47.49,,Republic of Hungary,HU
 I,Repubblica Italiana,Roma,12.49,41.89,,Italian Republic,IT
 I-ARAB,"Arabsat, Arab League","Riyadh, Saudi Arabia",46.72,24.63,,Arabsat,SA
@@ -145,7 +145,7 @@ SR,Republiek Suriname,Paramaribo,-55.2,5.85,,"Surinam, Republic of",SR
 SU,Soyuz Sovetskikh Sotsialisticheskikh Respublik,"Moskva, RSFSR, SSSR",37.62,55.75,,Union of Soviet Socialist Republics,RU
 SY,Al-Jumhuriyyah al-'Arabiyyah as-Suriyyah,"Dimashq, Suriya",36.29,33.51,,Syrian Arab Republic,SY
 T,Ratcha Anachak Thai,"Bangkok, Prathet Thai",100.49,13.75,,Thai Kingdom,TH
-TC,"Turks and Caicos Islands, British Overseas Territory","Cockburn Town, Grand Turk Island",-71.14,21.46,UK,Turks and Caicos Islands,TC
+TC,"Turks and Caicos Islands, British Overseas Territory","Cockburn Town, Grand Turk Island",-71.14,21.46,GB,Turks and Caicos Islands,TC
 TF,Territoire des Terres australes et antarctiques francaises,"Port-aux-francais, Kerguelen",70.22,-49.35,F,French Southern and Antarctic Lands,TF
 TM,Turkmenistan,Ashgabat,58.37,37.93,,Turkmenistan,TM
 TO,Pule'anga Fakatu'i 'o Tonga,Nuku'alofa,-175.2,-21.13,,"Tonga, Kingdom of",TO
@@ -874,8 +874,8 @@ DEIMOS,Deimos Space S.L.,Madrid:Tres Cantos,-3.71,40.6,,,ES
 DEIMI,Deimos Imaging,"Boecillo, Valladolid",-4.7,41.53,DEIMOS,,ES
 DELFT,Technische Universiteit Delft,Delft,4.37,52.0,,,NL
 DENV,University of Denver,"Denver, Colorado",-104.96,39.68,,,US
-DERA,Defense Evaluation and Research Agency,"Farnborough, Hants",-0.75,51.29,UK,,GB
-DEWC,DEWC Systems Pty Ltd.,Adelaide:Mawson Lakes,138.61,-34.82,UK,,AU
+DERA,Defense Evaluation and Research Agency,"Farnborough, Hants",-0.75,51.29,GB,GB
+DEWC,DEWC Systems Pty Ltd.,Adelaide:Mawson Lakes,138.61,-34.82,GB,AU
 DEYA,Fushan shunde qu deya chuangxin yanjiuyuan,"Shunde, Foshan",113.29,22.81,,Deya Innovation Research Institute,CN
 DFF,Deutsche-Franzosische Forschungsinstitut Saint-Louis (ISL),"Saint-Louis, Haut-Rhin, Alsace",7.57,47.59,,,FR
 DFH,Hangtian DongFangHong Weixing YG,Beijing,116.38,39.92,CAST,Spaceflight East Is Red Satellite Co,CN

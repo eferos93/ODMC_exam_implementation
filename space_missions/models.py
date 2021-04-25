@@ -2,12 +2,13 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from django.utils.text import slugify
 
 
 # Create your models here.
 
 class Country(models.Model):
-    code = models.CharField(max_length=2, primary_key=True)
+    code = models.CharField(max_length=2, unique=True)
     name = models.CharField(max_length=40, null=True, blank=True)
 
     class Continent(models.TextChoices):
@@ -28,7 +29,7 @@ class Country(models.Model):
 
 
 class Astronaut(models.Model):
-    id = models.CharField(max_length=256, primary_key=True)
+    astronaut_id = models.CharField(max_length=256, unique=True)
     name = models.CharField(max_length=40)
     original_name = models.CharField(max_length=40)
 
@@ -50,7 +51,7 @@ class Astronaut(models.Model):
 
 
 class Selection(models.Model):
-    name = models.CharField(max_length=40, primary_key=True)
+    name = models.CharField(max_length=40, unique=True)
     missions = models.ManyToManyField('space_missions.Mission')
     astronauts = models.ManyToManyField('space_missions.Astronaut',
                                         through='AstronautSelection',
@@ -84,7 +85,7 @@ class Launch(models.Model):
     SF_choices = ('Success', 'Fail', 'unknown')
     types_of_launch = ('Orbital', 'DeepSpaceMission', 'unknown')
 
-    id = models.CharField(max_length=10, primary_key=True)
+    launch_id = models.CharField(max_length=10, unique=True)
     date = models.DateField()
     launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle', on_delete=models.SET_NULL, null=True, blank=True)
     organisation = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
@@ -94,7 +95,7 @@ class Launch(models.Model):
 
 class Mission(models.Model):
     launch = models.OneToOneField('space_missions.Launch', on_delete=models.SET_NULL, null=True, blank=True)
-    name = models.CharField(max_length=30, primary_key=True)
+    name = models.CharField(max_length=30, unique=True)
     astronauts = models.ManyToManyField('space_missions.Astronaut',
                                         blank=True,
                                         through='AstronautOccupation',
@@ -102,7 +103,7 @@ class Mission(models.Model):
 
 
 class LaunchVehicle(models.Model):
-    name = models.CharField(max_length=256, primary_key=True)
+    name = models.CharField(max_length=256, unique=True)
     min_stage = models.IntegerField(null=True, blank=True)
     max_stage = models.IntegerField(null=True, blank=True)
     launch_mass = models.FloatField(null=True, blank=True)
@@ -134,7 +135,7 @@ class LaunchVehicle(models.Model):
 
 
 class Stage(models.Model):
-    name = models.CharField(max_length=256, primary_key=True)
+    name = models.CharField(max_length=256, unique=True)
     dry_mass = models.FloatField(null=True)
     launch_mass = models.FloatField(null=True)
     thrust = models.FloatField(null=True)
@@ -148,7 +149,7 @@ class Stage(models.Model):
 
 
 class Engine(models.Model):
-    name = models.CharField(max_length=256, primary_key=True)
+    name = models.CharField(max_length=256, unique=True)
     manufacturer = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
     mass = models.FloatField(null=True, blank=True)
     impulse = models.FloatField(null=True, blank=True)
@@ -183,7 +184,7 @@ class VehicleStage(models.Model):
 
 
 class Organisation(models.Model):
-    code = models.CharField(max_length=256, primary_key=True)
+    code = models.CharField(max_length=256, unique=True)
     name = models.CharField(max_length=256, null=True)
     english_name = models.CharField(max_length=256, null=True)
     location = models.CharField(max_length=256, null=True)
