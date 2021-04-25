@@ -1,9 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-
-
-
-
 <head>
   {% block title %}<title>Space Missions</title>{% endblock %}
   <meta charset="utf-8">
@@ -17,7 +14,6 @@
 
  
   <!-- Add additional CSS in static file -->
-  {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
@@ -27,11 +23,9 @@
       <div class="col-sm-2">
       {% block sidebar %}
         <ul class="sidebar-nav">
-          <li><a class="sottolineato" href="{% url 'index' %}"><h4>Home</h4></a></li>
-          <li><a href="{% url 'countries' %}"><h4>Countries</h4></a></li>
+          <li><a class="underlined" href="{% url 'home' %}"><h4>Home</h4></a></li>
+          <li><a href="{% url 'space_missions:countries' %}"><h4>Countries</h4></a></li>
         </ul>
-
-        <!-- <a href="" download><button class="my-button" >  <i class="fa fa-download"></i> Download </button></a> -->
         
      {% endblock %}
       </div>

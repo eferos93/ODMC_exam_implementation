@@ -15,15 +15,13 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib import admin
-
-# Use include() to add URLS from the catalog application and authentication system
 from django.urls import include
-
-#Add URL maps to redirect the base URL to our application
+# Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
+from .views import HomePage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('spacemissions/', include('space_missions.urls')),
-    path('', RedirectView.as_view(url='spacemissions/', permanent=True)), #Add URL maps to redirect the base URL to our application
+    path('', HomePage.as_view(), name='home'),
+    path('spacemissions/', include('space_missions.urls', namespace='space_missions')),
 ]

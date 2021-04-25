@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Country List</h1>
+  {% if country_list %}
+  <ul>
+    {% for country in country_list %}
+      <li>
+        <a href="{% url 'space_missions:country-detail' pk=country.pk %}">{{ country.name }}, {{country.code}}</a> ({{country.continent}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no countries in the library.</p>
+  {% endif %} 
+{% endblock %}
