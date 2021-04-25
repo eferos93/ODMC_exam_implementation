@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Title: {{ country.name }}</h1>
+  <h1>{{ country.name }}'s details:</h1>
 
-  <p><strong>Code:</strong>{{ country.name }}</p> <!-- author detail link not yet defined -->
-  <p><strong>Name:</strong> {{ country.continent }}</p>
-  <p><strong>Continent:</strong> {{ country.code }}</p>
+  <p><strong>Code:</strong>{{ country.code }}</p>
+  <p><strong>Continent:</strong> {{ country.continent }}</p>
 
   </div>
 {% endblock %}

@@ -6,7 +6,7 @@
   <ul>
     {% for country in country_list %}
       <li>
-        <a href="{% url 'space_missions:country-detail' pk=country.pk %}">{{ country.name }}, {{country.code}}</a> ({{country.continent}})
+        <a href="{% url 'space_missions:country-detail' pk=country.pk %}">{{ country.name }}</a>
       </li>
     {% endfor %}
   </ul>
