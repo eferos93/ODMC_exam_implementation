@@ -24,13 +24,8 @@ class Country(models.Model):
     def __str__(self):
         return str(self.code) + " " + str(self.name) + " " + str(self.continent)
 
-    def get_absolute_url(self):
-        """Returns the url to access a particular book instance."""
-        return reverse('country-detail', args=[str(self.code)])
-    
     class Meta:
         ordering = ['name']
-
 
 
 class Astronaut(models.Model):
