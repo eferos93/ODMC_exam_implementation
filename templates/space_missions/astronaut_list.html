@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+    <h1>Astronauts List</h1>
+    {% if astronaut_list %}
+        <ul>
+            {% for astronaut in astronaut_list %}
+                <li>
+                    <a href="{% url 'space_missions:astronaut-detail' pk=astronaut.pk %}">
+                        {{ astronaut.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There is no Astronaut in the database</p>
+    {% endif %}
+{% endblock %}
