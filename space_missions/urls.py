@@ -12,4 +12,6 @@ urlpatterns = [
     path('organisation/<int:pk>', views.OrganisationDetail.as_view(), name='organisation-detail'),
     path('engines/', views.EngineList.as_view(), name='engines'),
     path('engine/<int:pk>', views.EngineDetail.as_view(), name='engine-detail'),
+    path('stages/', views.StageList.as_view(), name='stages'),
+    path('stage/<int:pk>', views.StageDetail.as_view(), name='stage-detail'),
 ]

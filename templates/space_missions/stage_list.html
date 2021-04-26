@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Stage List</h1>
+    {% if stage_list %}
+        <ul>
+            {% for stage in stage_list %}
+                <li><a href="{% url 'space_missions:stage-detail' pk=stage.pk %}">
+                    {{ stage.name }}
+                </a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No engines found in the database!</p>
+    {% endif %}
+{% endblock %}

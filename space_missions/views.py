@@ -33,3 +33,11 @@ class EngineList(generic.ListView):
 
 class EngineDetail(generic.DetailView):
     model = models.Engine
+
+
+class StageDetail(generic.DetailView):
+    model = models.Stage
+
+
+class StageList(generic.ListView):
+    model = models.Stage
