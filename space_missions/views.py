@@ -57,3 +57,11 @@ class MissionList(generic.ListView):
 
 class MissionDetail(generic.DetailView):
     model = models.Mission
+
+
+class SelectionList(generic.ListView):
+    model = models.Selection
+
+
+class SelectionDetail(generic.DetailView):
+    model = models.Selection

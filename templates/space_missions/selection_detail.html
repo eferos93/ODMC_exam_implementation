@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ selection.name }}'s details:</h1>
+        <ul>
+            <li>
+                <strong>Missions:</strong>
+                {% if selection.missions.all %}
+                    <ul>
+                        {% for mission in selection.missions.all %}
+                            <li>
+                                <a href="{% url 'space_missions:mission-detail' pk=mission.pk %}">
+                                    {{ mission.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    Unknown
+                {% endif %} 
+            </li>
+            <li>
+                <strong>Astronauts:</strong>
+                {% if selection.astronautselection_set.all %}
+                    <ul>
+                         {% for astronaut_selection in selection.astronautselection_set.all %}
+                             <li>
+                                 Name:
+                                 <a href="{% url 'space_missions:astronaut-detail' pk=astronaut_selection.astronaut_id %}">
+                                     {{ astronaut_selection.astronaut.name }}
+                                 </a>;
+                                Selection year: {{ astronaut_selection.selection_year }}
+                             </li>
+                         {% endfor %}
+                    </ul>
+                {% else %}
+                    Unknown
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+{% endblock %}

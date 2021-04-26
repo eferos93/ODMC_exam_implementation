@@ -18,4 +18,6 @@ urlpatterns = [
     path('launchvehicle/<int:pk>', views.LaunchVehicleDetail.as_view(), name='launch-vehicle-detail'),
     path('missions/', views.MissionList.as_view(), name='missions'),
     path('mission/<int:pk>', views.MissionDetail.as_view(), name='mission-detail'),
+    path('selections/', views.SelectionList.as_view(), name='selections'),
+    path('selection/<int:pk>', views.SelectionDetail.as_view(), name='selection-detail')
 ]

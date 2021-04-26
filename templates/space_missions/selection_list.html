@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Selection List</h1>
+    {% if selection_list %}
+        <ul>
+            {% for selection in selection_list %}
+                <li>
+                    <a href="{% url 'space_missions:selection-detail' pk=selection.pk %}">
+                        {{ selection.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Selections not found in the database!</p>
+    {% endif %}
+{% endblock %}

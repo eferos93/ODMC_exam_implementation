@@ -160,7 +160,7 @@ class PopulateAstronautSelection(Populate):
     def create_instance_of_model(self, fields):
         return self.model(astronaut=Astronaut.objects.get(astronaut_id__exact=fields[0]),
                           selection=Selection.objects.get(name__exact=fields[1]),
-                          year_of_selection=fields[2])
+                          selection_year=fields[2])
 
 
 class PopulateAstronautOccupation(Populate):

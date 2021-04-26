@@ -60,13 +60,13 @@ class Selection(models.Model):
 
 class AstronautSelection(models.Model):
     class Meta:
-        unique_together = [('astronaut', 'selection', 'year_of_selection')]
+        unique_together = [('astronaut', 'selection', 'selection_year')]
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     selection = models.ForeignKey('space_missions.Selection', on_delete=models.CASCADE)
-    year_of_selection = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900),
-                                                                     MaxValueValidator(timezone.now().year)]
-                                                         )
+    selection_year = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900),
+                                                                  MaxValueValidator(timezone.now().year)]
+                                                      )
 
 
 class AstronautOccupation(models.Model):
