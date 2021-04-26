@@ -3,11 +3,11 @@ from django.views import generic
 from . import models
 
 
-class CountryListView(generic.ListView):
+class CountryList(generic.ListView):
     model = models.Country
 
 
-class CountryDetailView(generic.DetailView):
+class CountryDetail(generic.DetailView):
     model = models.Country
 
 
@@ -41,3 +41,12 @@ class StageDetail(generic.DetailView):
 
 class StageList(generic.ListView):
     model = models.Stage
+
+
+class LaunchVehicleList(generic.ListView):
+    model = models.LaunchVehicle
+
+
+class LaunchVehicleDetail(generic.DetailView):
+    model = models.LaunchVehicle
+
