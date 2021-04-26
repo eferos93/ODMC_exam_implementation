@@ -25,3 +25,11 @@ class OrganisationDetail(generic.DetailView):
 
 class OrganisationList(generic.ListView):
     model = models.Organisation
+
+
+class EngineList(generic.ListView):
+    model = models.Engine
+
+
+class EngineDetail(generic.DetailView):
+    model = models.Engine
