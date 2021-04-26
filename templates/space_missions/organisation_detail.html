@@ -3,21 +3,23 @@
 {% block content %}
     <div class="container">
         <h1>{{ organisation.name }}'s details:</h1>
-        <p><strong>Code: </strong> {{ organisation.code }}</p>
-        <p><strong>English Name: </strong> {{ organisation.english_name }}</p>
-        <p><strong>Location: </strong> {{ organisation.location }}</p>
-        <p><strong>Country: </strong>
-            <a href="{% url 'space_missions:country-detail' pk=organisation.country.pk %}">
-                {{ organisation.country.name }}
-            </a>
-        </p>
-        <p><strong>Longitude: </strong> {{ organisation.longitude }}</p>
-        <p><strong>Latitude: </strong> {{ organisation.latitude }}</p>
-        <p>
-            <strong>Parent organisation: </strong>
-            <a href="{% url 'space_missions:organisation-detail' pk=organisation.parent_organisation.pk %}">
-                {{ organisation.parent_organisation.name }}
-            </a>
-        </p>
+        <ul>
+            <li><strong>Code: </strong> {{ organisation.code }}</li>
+            <li><strong>English Name: </strong> {{ organisation.english_name }}</li>
+            <li><strong>Location: </strong> {{ organisation.location }}</li>
+            <li><strong>Country: </strong>
+                <a href="{% url 'space_missions:country-detail' pk=organisation.country_id %}">
+                    {{ organisation.country.name }}
+                </a>
+            </li>
+            <li><strong>Longitude: </strong> {{ organisation.longitude }}</li>
+            <li><strong>Latitude: </strong> {{ organisation.latitude }}</li>
+            <li>
+                <strong>Parent organisation: </strong>
+                <a href="{% url 'space_missions:organisation-detail' pk=organisation.parent_organisation_id %}">
+                    {{ organisation.parent_organisation.name }}
+                </a>
+            </li>
+        </ul>
     </div>
 {% endblock %}

@@ -3,13 +3,15 @@
 {% block content %}
     <div class="container">
         <h1>{{ astronaut.name }}'s details:</h1>
-        <p><strong>Original name: </strong>{{ astronaut.original_name }}</p>
-        <p><strong>Birth year: </strong>{{ astronaut.birth_year }}</p>
-        <p><strong>Sex: </strong>{{ astronaut.get_sex_display }}</p>
-        <p><strong>Background: </strong>{{ astronaut.get_background_display }}</p>
-        <p>
-            <strong>Nationality</strong>
-            <a href="{% url 'space_missions:country-detail' pk=astronaut.nationality.pk %}">{{ astronaut.nationality.name }}</a>
-        </p>
+        <ul>
+            <li><strong>Original name: </strong>{{ astronaut.original_name }}</li>
+            <li><strong>Birth year: </strong>{{ astronaut.birth_year }}</li>
+            <li><strong>Sex: </strong>{{ astronaut.get_sex_display }}</li>
+            <li><strong>Background: </strong>{{ astronaut.get_background_display }}</li>
+            <li>
+                <strong>Nationality</strong>
+                <a href="{% url 'space_missions:country-detail' pk=astronaut.nationality.pk %}">{{ astronaut.nationality.name }}</a>
+            </li>
+        </ul>
     </div>
 {% endblock %}

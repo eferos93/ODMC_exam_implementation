@@ -2,11 +2,17 @@
 
 {% block content %}
     <h1>{{ engine.name }}'s details:</h1>
-    <p><strong>Manufacturer: </strong><a href="{% url 'space_missions:organisation-detail' pk=engine.manufacturer_id %}">{{ engine.manufacturer.name }}</a></p>
-    <p><strong>Mass: </strong>{{ engine.mass }} Kg</p>
-    <p><strong>Impulse: </strong> {{ engine.impulse }} kN</p>
-    <p><strong>Thrust: </strong> {{ engine.thrust }} kN</p>
-    <p><strong>Isp: </strong> {{ engine.isp }} seconds</p>
-    <p><strong>Burn Duration: </strong>{{ engine.burn_duration }} seconds</p>
-    <p><strong>Number of Chambers: </strong>{{ engine.chambers }}</p>
+    <ul>
+        <li><strong>Manufacturer: </strong>
+            <a href="{% url 'space_missions:organisation-detail' pk=engine.manufacturer_id %}">
+                {{ engine.manufacturer.name }}
+            </a>
+        </li>
+        <li><strong>Mass: </strong>{{ engine.mass }} Kg</li>
+        <li><strong>Impulse: </strong> {{ engine.impulse }} kN</li>
+        <li><strong>Thrust: </strong> {{ engine.thrust }} kN</li>
+        <li><strong>Isp: </strong> {{ engine.isp }} seconds</li>
+        <li><strong>Burn Duration: </strong>{{ engine.burn_duration }} seconds</li>
+        <li><strong>Number of Chambers: </strong>{{ engine.chambers }}</li>
+    </ul>
 {% endblock %}
