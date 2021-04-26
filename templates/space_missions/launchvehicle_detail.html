@@ -3,14 +3,24 @@
 {% block content %}
     <h1>{{ launchvehicle.name }}'s details:</h1>
     <ul>
-        <li><strong>Class: </strong>{{ launchvehicle.get_vehicle_class_diplay }}</li>
+        <li><strong>Class: </strong>{{ launchvehicle.get_vehicle_class_display }}</li>
         <li>
             <strong>Stages:</strong>
-            <ul>
-                {% for stage in launchvehicle.stages.all %}
-                    <li><a href="{% url 'space_missions:stage-detail' pk=stage.pk %}">{{ stage.name }}</a></li>
-                {% endfor %}
-            </ul>
+            {% if launchvehicle.vehiclestage_set %}
+                <ul>
+                    {% for vehicle_stage in launchvehicle.vehiclestage_set.all %}
+                        <li>
+                            Stage Name: <a href="{% url 'space_missions:stage-detail' pk=vehicle_stage.stage_id %}">
+                                {{ vehicle_stage.stage.name }}
+                            </a>;
+                            Stage Number: {{ vehicle_stage.get_stage_number_display }};
+                            Dummy: {{ vehicle_stage.dummy }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                Unknown
+            {% endif %}
         </li>
         <li><strong>Manufacturer: </strong>
             <a href="{% url 'space_missions:organisation-detail' pk=launchvehicle.manufacturer_id %}">
