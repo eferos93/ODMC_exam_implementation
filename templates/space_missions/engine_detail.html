@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ engine.name }}'s details:</h1>
-    <ul>
-        <li><strong>Manufacturer: </strong>
-            <a href="{% url 'space_missions:organisation-detail' pk=engine.manufacturer_id %}">
-                {{ engine.manufacturer.name }}
-            </a>
-        </li>
-        <li><strong>Mass: </strong>{{ engine.mass }} Kg</li>
-        <li><strong>Impulse: </strong> {{ engine.impulse }} kN</li>
-        <li><strong>Thrust: </strong> {{ engine.thrust }} kN</li>
-        <li><strong>Isp: </strong> {{ engine.isp }} seconds</li>
-        <li><strong>Burn Duration: </strong>{{ engine.burn_duration }} seconds</li>
-        <li><strong>Number of Chambers: </strong>{{ engine.chambers }}</li>
-    </ul>
+    <div class="container">
+        <h1>{{ engine.name }}'s details:</h1>
+        <ul>
+            <li><strong>Manufacturer: </strong>
+                <a href="{% url 'space_missions:organisation-detail' pk=engine.manufacturer_id %}">
+                    {{ engine.manufacturer.name }}
+                </a>
+            </li>
+            <li><strong>Mass: </strong>{{ engine.mass }} Kg</li>
+            <li><strong>Impulse: </strong> {{ engine.impulse }} kN</li>
+            <li><strong>Thrust: </strong> {{ engine.thrust }} kN</li>
+            <li><strong>Isp: </strong> {{ engine.isp }} seconds</li>
+            <li><strong>Burn Duration: </strong>{{ engine.burn_duration }} seconds</li>
+            <li><strong>Number of Chambers: </strong>{{ engine.chambers }}</li>
+        </ul>
+    </div>
 {% endblock %}

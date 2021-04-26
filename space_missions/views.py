@@ -50,3 +50,10 @@ class LaunchVehicleList(generic.ListView):
 class LaunchVehicleDetail(generic.DetailView):
     model = models.LaunchVehicle
 
+
+class MissionList(generic.ListView):
+    model = models.Mission
+
+
+class MissionDetail(generic.DetailView):
+    model = models.Mission

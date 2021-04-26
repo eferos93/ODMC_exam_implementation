@@ -71,26 +71,26 @@ class AstronautSelection(models.Model):
 
 class AstronautOccupation(models.Model):
     class Meta:
-        unique_together = [('astronaut', 'mission', 'role', 'year_of_join')]
+        unique_together = [('astronaut', 'mission', 'role', 'join_year')]
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     mission = models.ForeignKey('space_missions.Mission', on_delete=models.CASCADE)
     role = models.CharField(max_length=40)
-    year_of_join = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900),
-                                                                MaxValueValidator(timezone.now().year)]
-                                                    )
+    join_year = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900),
+                                                             MaxValueValidator(timezone.now().year)]
+                                                 )
 
 
 class Launch(models.Model):
     SF_choices = ('Success', 'Fail', 'unknown')
-    types_of_launch = ('Orbital', 'DeepSpaceMission', 'unknown')
+    launch_types = ('Orbital', 'DeepSpaceMission', 'unknown')
 
     launch_id = models.CharField(max_length=10, unique=True)
     date = models.DateField()
     launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle', on_delete=models.SET_NULL, null=True, blank=True)
     organisation = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
     success_or_fail = models.CharField(max_length=20, choices=[(d, d) for d in SF_choices])
-    type_of_launch = models.CharField(max_length=20, choices=[(d, d) for d in types_of_launch])
+    launch_type = models.CharField(max_length=20, choices=[(d, d) for d in launch_types])
 
 
 class Mission(models.Model):

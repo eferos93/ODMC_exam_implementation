@@ -101,7 +101,7 @@ class PopulateLaunch(Populate):
     def create_instance_of_model(self, fields):
         return self.model(launch_id=fields[0], date=fields[1],
                           organisation=Organisation.objects.get(code__exact=fields[3]),
-                          type_of_launch=fields[4], success_or_fail=fields[5])
+                          launch_type=fields[4], success_or_fail=fields[5])
 
     def update_vehicle(self):
         for _, row in pd.read_csv(self.data_frame_link).iterrows():
@@ -170,7 +170,7 @@ class PopulateAstronautOccupation(Populate):
     def create_instance_of_model(self, fields):
         return self.model(astronaut=Astronaut.objects.get(astronaut_id__exact=fields[0]),
                           mission=Mission.objects.get(name__exact=fields[1]),
-                          role=fields[2], year_of_join=fields[3])
+                          role=fields[2], join_year=fields[3])
 
 
 class PopulateLaunchVehicle(Populate):
