@@ -2,6 +2,9 @@
 
 {% block content %}
     <h1>Organisation List</h1>
+    <form action='{% url 'space_missions:organisation-csv' %}' method='GET'>
+        <button type='submit'>Get CSV</button>
+    </form>
     {% if organisation_list %}
         <ul>
             {% for organisation in organisation_list %}

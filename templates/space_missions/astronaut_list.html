@@ -2,6 +2,15 @@
 
 {% block content %}
     <h1>Astronauts List</h1>
+    <form action='{% url 'space_missions:astronauts-csv' %}' method='GET'>
+        <button type='submit'>Get astronauts.csv</button>
+    </form>
+    <form action='{% url 'space_missions:astronautoccupations-csv' %}' method='GET'>
+        <button type='submit'>Get AstronautOccupations.csv</button>
+    </form>
+    <form action='{% url 'space_missions:astroanutsselections-csv' %}' method='GET'>
+        <button type='submit'>Get AstronautSelections.csv</button>
+    </form>
     {% if astronaut_list %}
         <ul>
             {% for astronaut in astronaut_list %}

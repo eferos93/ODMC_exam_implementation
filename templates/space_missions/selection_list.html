@@ -2,6 +2,10 @@
 
 {% block content %}
     <h1>Selection List</h1>
+    <form action='{% url 'space_missions:selections-csv' %}' method='GET'>
+        <button type='submit'>Get selections.csv</button>
+    </form>
+
     {% if selection_list %}
         <ul>
             {% for selection in selection_list %}

@@ -2,6 +2,9 @@
 
 {% block content %}
   <h1>Country List</h1>
+    <form action='{% url 'space_missions:countries-csv' %}' method='GET'>
+        <button type='submit'>Get CSV</button>
+    </form>
   {% if country_list %}
   <ul>
     {% for country in country_list %}

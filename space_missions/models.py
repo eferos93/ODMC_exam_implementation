@@ -22,7 +22,7 @@ class Country(models.Model):
     continent = models.CharField(max_length=10, choices=Continent.choices, default=Continent.AMERICAS)
 
     def __str__(self):
-        return str(self.code) + " " + str(self.name) + " " + str(self.continent)
+        return self.name
 
     class Meta:
         ordering = ['name']

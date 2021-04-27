@@ -1,6 +1,11 @@
 # Create your views here.
+import csv
+
+from django.http import HttpResponse
 from django.views import generic
 from . import models
+from .models import Organisation, Country, Astronaut, Engine, LaunchVehicle, VehicleStage, Mission, AstronautOccupation, \
+    Selection, AstronautSelection
 
 
 class CountryList(generic.ListView):
@@ -65,3 +70,160 @@ class SelectionList(generic.ListView):
 
 class SelectionDetail(generic.DetailView):
     model = models.Selection
+
+
+def download_organisations_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="organisations.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['code', 'name', 'english_name', 'location',
+                     'country', 'longitude', 'latitude', 'parent_organisation']
+                    )
+    for organisation in Organisation.objects.all():
+        writer.writerow([organisation.code, organisation.name,
+                         organisation.english_name, organisation.location,
+                         organisation.country.code, organisation.longitude, organisation.latitude,
+                         organisation.parent_organisation.code])
+    return response
+
+
+def download_countries_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="countries.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['code', 'name', 'continent'])
+    for country in Country.objects.all():
+        writer.writerow([country.code, country.name, country.continent])
+
+    return response
+
+
+def download_astronauts_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="astronauts.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['name', 'original_name', 'sex', 'background', 'birth_year', 'nationality'])
+    for astronaut in Astronaut.objects.all():
+        writer.writerow([astronaut.name, astronaut.original_name, astronaut.get_sex_display(),
+                         astronaut.get_background_display(), astronaut.birth_year,
+                         astronaut.nationality.code])
+
+    return response
+
+
+def download_engines_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="engines.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['name', 'manufacturer', 'mass', 'impulse', 'thrust', 'isp',
+                     'burn_duration', 'chambers'])
+    for engine in Engine.objects.all():
+        writer.writerow([engine.name, engine.manufacturer.code, engine.mass,
+                         engine.impulse, engine.thrust, engine.isp,
+                         engine.burn_duration, engine.chambers])
+
+    return response
+
+
+def download_launch_vehicles_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="LaunchVehicles.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['name', 'min_stage', 'max_stage', 'launch_mass', 'TO_thrust',
+                     'length', 'diameter', 'vehicle_class', 'manufacturer'])
+
+    for vehicle in LaunchVehicle.objects.all():
+        writer.writerow([vehicle.name, vehicle.min_stage, vehicle.max_stage,
+                         vehicle.launch_mass, vehicle.TO_thrust,
+                         vehicle.length, vehicle.diameter, vehicle.get_vehicle_class_display(),
+                         vehicle.manufacturer.code])
+
+    return response
+
+
+def download_vehicle_stages_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="VehicleStages.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['launch_vehicle', 'stage', 'stage_number', 'dummy'])
+
+    for vehicle_stage in VehicleStage.objects.all():
+        writer.writerow([vehicle_stage.launch_vehicle.name, vehicle_stage.stage.name,
+                         vehicle_stage.get_stage_number_display(),
+                         vehicle_stage.dummy])
+
+    return response
+
+
+def download_missions_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="Missions.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['name', 'launch_id', 'date', 'launch_vehicle', 'organisation',
+                     'success_or_fail', 'launch_type'])
+
+    for mission in Mission.objects.all():
+        writer.writerow([mission.name, mission.launch.launch_id, mission.launch.date,
+                         mission.launch.launch_vehicle.name, mission.launch.organisation.code,
+                         mission.launch.launch_type])
+
+    return response
+
+
+def download_astronaut_occupations_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="AstronautOccupations.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['astronaut', 'mission', 'role', 'join_year'])
+
+    for astronaut_occupation in AstronautOccupation.objects.all():
+        writer.writerow([astronaut_occupation.astronaut.name,
+                         astronaut_occupation.mission.name,
+                         astronaut_occupation.role, astronaut_occupation.join_year])
+
+    return response
+
+
+def download_selections_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="selections.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['name', 'mission'])
+
+    for selection in Selection.objects.all():
+        for mission in selection.missions.all():
+            writer.writerow([selection.name, mission.name])
+
+    return response
+
+
+def download_astronauts_selections_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="AstronautsSelections.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['astronaut', 'selection', 'selection_year'])
+
+    for astronaut_selection in AstronautSelection.objects.all():
+        writer.writerow([astronaut_selection.astronaut.name, astronaut_selection.selection.name,
+                         astronaut_selection.selection_year])
+    return response
