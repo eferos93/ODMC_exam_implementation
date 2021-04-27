@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Mission List:</h1>
+    {% if mission_list %}
+        <ul>
+            {% for mission in mission_list %}
+                <li>
+                    <a href="{% url 'space_missions:mission-detail' pk=mission.pk %}">
+                        {{ mission.name }}, {{ mission.launch.launch_id }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Mission found in the database!</p>
+    {% endif %}
+{% endblock %}

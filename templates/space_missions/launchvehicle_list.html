@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Launch Vehicle List</h1>
+    {% if launchvehicle_list %}
+        <ul>
+            {% for launch_vehicle in launchvehicle_list %}
+                <li>
+                    <a href="{% url 'space_missions:launch-vehicle-detail' pk=launch_vehicle.pk %}">
+                        {{ launch_vehicle.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Vehicles found in the database!</p>
+    {% endif %}
+{% endblock %}

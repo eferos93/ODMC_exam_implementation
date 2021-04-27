@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ launchvehicle.name }}'s details:</h1>
+        <ul>
+            <li><strong>Class: </strong>{{ launchvehicle.get_vehicle_class_display }}</li>
+            <li>
+                <strong>Stages:</strong>
+                {% if launchvehicle.vehiclestage_set.all %}
+                    <ul>
+                        {% for vehicle_stage in launchvehicle.vehiclestage_set.all %}
+                            <li>
+                                Stage Name: <a href="{% url 'space_missions:stage-detail' pk=vehicle_stage.stage_id %}">
+                                    {{ vehicle_stage.stage.name }}
+                                </a>;
+                                Stage Number: {{ vehicle_stage.get_stage_number_display }};
+                                Dummy: {{ vehicle_stage.dummy }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    Unknown
+                {% endif %}
+            </li>
+            <li><strong>Manufacturer: </strong>
+                <a href="{% url 'space_missions:organisation-detail' pk=launchvehicle.manufacturer_id %}">
+                    {{ launchvehicle.manufacturer.name }}
+                </a>
+            </li>
+            <li><strong>Minimum number of stages: </strong>{{ launchvehicle.min_stage }}</li>
+            <li><strong>Maximum number of stages: </strong>{{ launchvehicle.max_stage }}</li>
+            <li><strong>Launch Mass: </strong>{{ launchvehicle.launch_mass }} Kg</li>
+            <li><strong>Thrust: </strong>{{ launch_vehcle.TO_thrust }} kN</li>
+            <li><strong>Length: </strong>{{ launchvehicle.length }} meters</li>
+            <li><strong>Diameter: </strong>{{ launchvehicle.diameter }} meters</li>
+        </ul>
+    </div>
+{% endblock %}

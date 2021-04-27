@@ -3,7 +3,9 @@
 {% block content %}
     <div class="container">
         <h1>{{ country.name }}'s details:</h1>
-        <p><strong>Code:</strong>{{ country.code }}</p>
-        <p><strong>Continent:</strong> {{ country.continent }}</p>
+        <ul>
+            <li><strong>Code:</strong>{{ country.code }}</li>
+            <li><strong>Continent:</strong> {{ country.continent }}</li>
+        </ul>
     </div>
 {% endblock %}

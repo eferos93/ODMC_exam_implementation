@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ mission.name }}'s details:</h1>
+        <ul>
+            <li><strong>Launch ID: </strong>{{ mission.launch.launch_id }}</li>
+            <li><strong>Date: </strong><time>{{ mission.launch.date }}</time></li>
+            <li><strong>Organisation: </strong>
+                <a href="{% url 'space_missions:organisation-detail' pk=mission.launch.organisation_id %}">
+                    {{ mission.launch.organisation.name }}
+                </a>
+            </li>
+            <li><strong>Vehicle: </strong>
+                <a href="{% url 'space_missions:launch-vehicle-detail' pk=mission.launch.launch_vehicle_id %}">
+                    {{ mission.launch.launch_vehicle.name }}
+                </a>
+            </li>
+            <li>
+                <strong>Astronauts:</strong>
+                {% if mission.astronautoccupation_set.all %}
+                    <ul>
+                        {% for astronaut_occupation in mission.astronautoccupation_set.all %}
+                            <li>
+                                Name: <a href="{% url 'space_missions:astronaut-detail' pk=astronaut_occupation.astronaut_id %}">
+                                    {{ astronaut_occupation.astronaut.name }}
+                                </a>;
+                                Role: {{ astronaut_occupation.role }};
+                                Join Year: {{ astronaut_occupation.join_year }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    Unknown
+                {% endif %}
+            </li>
+            <li><strong>Launch Type: </strong>{{ mission.launch.launch_type }}</li>
+            <li><strong>Success or Fail: </strong>{{ mission.launch.success_or_fail }}</li>
+        </ul>
+    </div>
+{% endblock %}

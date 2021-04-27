@@ -46,9 +46,9 @@ class PopulateAstronaut(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        return self.model(id=fields[0], name=fields[1],
+        return self.model(astronaut_id=fields[0], name=fields[1],
                           original_name=fields[2], sex=fields[3],
-                          year_of_birth=fields[4],
+                          birth_year=fields[4],
                           nationality=Country.objects.get(code__exact=fields[5]),
                           background=fields[6])
 
@@ -58,17 +58,25 @@ class PopulateOrganisation(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
+        print(fields)
+        country = None if pd.isnull(fields[7]) else Country.objects.get(code__exact=fields[7])
         return self.model(code=fields[0],
                           name=fields[1], location=fields[2], longitude=fields[3],
                           latitude=fields[4], parent_organisation=None, english_name=fields[6],
-                          country=Country.objects.get(code__exact=fields[7])
+                          country=country
                           )
 
     def update_parent_organisation(self, fields):
-        model_entry = self.model.objects.get(pk=fields[0])
+        print(fields)
+        model_entry = self.model.objects.get(code__exact=fields[0])
         if fields[5] is not None:
-            model_entry.parent_organisation = self.model.objects.get(pk=fields[5])
-            model_entry.save()
+            try:
+                model_entry.parent_organisation = self.model.objects.get(code__exact=fields[5])
+                model_entry.save()
+            except self.model.DoesNotExist:
+                model_entry.parent_organisation = None
+                model_entry.save()
+
 
     def update(self):
         data_frame = pd.read_csv(self.data_frame_link)
@@ -81,7 +89,7 @@ class PopulateEngines(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        return self.model(name=fields[0], manufacturer=Organisation.objects.get(pk__exact=fields[1]), mass=fields[2],
+        return self.model(name=fields[0], manufacturer=Organisation.objects.get(code__exact=fields[1]), mass=fields[2],
                           impulse=fields[3], thrust=fields[4], isp=fields[5], burn_duration=fields[6],
                           chambers=fields[7])
 
@@ -91,15 +99,15 @@ class PopulateLaunch(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        return self.model(id=fields[0], date=fields[1],
-                          organisation=Organisation.objects.get(pk=fields[3]),
-                          type_of_launch=fields[4], success_or_fail=fields[5])
+        return self.model(launch_id=fields[0], date=fields[1],
+                          organisation=Organisation.objects.get(code__exact=fields[3]),
+                          launch_type=fields[4], success_or_fail=fields[5])
 
     def update_vehicle(self):
         for _, row in pd.read_csv(self.data_frame_link).iterrows():
-            launch = self.model.objects.get(pk__exact=row['launch_id'])
+            launch = self.model.objects.get(launch_id__exact=row['launch_id'])
             lv = None if pd.isnull(row['launch_vehicle']) else LaunchVehicle.objects.get(
-                pk__exact=row['launch_vehicle']
+                name__exact=row['launch_vehicle']
             )
             launch.launch_vehicle = lv
             launch.save()
@@ -110,7 +118,7 @@ class PopulateMission(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        return self.model(name=fields[1], launch=Launch.objects.get(pk__exact=fields[0]))
+        return self.model(name=fields[1], launch=Launch.objects.get(launch_id__exact=fields[0]))
 
 
 class PopulateSelection(Populate):
@@ -127,8 +135,8 @@ class PopulateSelection(Populate):
 
     def update_mission_field(self):
         for _, row in pd.read_csv(self.data_frame_link).iterrows():
-            entry = self.model.objects.get(pk__exact=row['selection'])
-            entry.missions.add(Mission.objects.get(pk__exact=row['mission']))
+            entry = self.model.objects.get(name__exact=row['selection'])
+            entry.missions.add(Mission.objects.get(name__exact=row['mission']))
             entry.save()
 
 
@@ -137,8 +145,8 @@ class PopulateStage(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        engine = None if pd.isnull(fields[8]) else Engine.objects.get(pk__exact=fields[8])
-        manufacturer = None if pd.isnull(fields[1]) else Organisation.objects.get(pk__exact=fields[1])
+        engine = None if pd.isnull(fields[8]) else Engine.objects.get(name__exact=fields[8])
+        manufacturer = None if pd.isnull(fields[1]) else Organisation.objects.get(code__exact=fields[1])
         return self.model(name=fields[0], manufacturer=manufacturer,
                           length=fields[2], diameter=fields[3], launch_mass=fields[4],
                           dry_mass=fields[5], thrust=fields[6], burn_duration=fields[7],
@@ -150,9 +158,9 @@ class PopulateAstronautSelection(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        return self.model(astronaut=Astronaut.objects.get(pk__exact=fields[0]),
-                          selection=Selection.objects.get(pk__exact=fields[1]),
-                          year_of_selection=fields[2])
+        return self.model(astronaut=Astronaut.objects.get(astronaut_id__exact=fields[0]),
+                          selection=Selection.objects.get(name__exact=fields[1]),
+                          selection_year=fields[2])
 
 
 class PopulateAstronautOccupation(Populate):
@@ -160,9 +168,9 @@ class PopulateAstronautOccupation(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        return self.model(astronaut=Astronaut.objects.get(pk__exact=fields[0]),
-                          mission=Mission.objects.get(pk__exact=fields[1]),
-                          role=fields[2], year_of_join=fields[3])
+        return self.model(astronaut=Astronaut.objects.get(astronaut_id__exact=fields[0]),
+                          mission=Mission.objects.get(name__exact=fields[1]),
+                          role=fields[2], join_year=fields[3])
 
 
 class PopulateLaunchVehicle(Populate):
@@ -170,7 +178,7 @@ class PopulateLaunchVehicle(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        organisation = None if pd.isnull(fields[1]) else Organisation.objects.get(pk__exact=fields[1])
+        organisation = None if pd.isnull(fields[1]) else Organisation.objects.get(code__exact=fields[1])
         return self.model(name=fields[0],
                           manufacturer=organisation,
                           min_stage=fields[2],
@@ -183,8 +191,8 @@ class PopulateVehicleStage(Populate):
         super().__init__(data_frame_link, model)
 
     def create_instance_of_model(self, fields):
-        stage = None if pd.isnull(fields[2]) else Stage.objects.get(pk__exact=fields[2])
-        return self.model(launch_vehicle=LaunchVehicle.objects.get(pk__exact=fields[0]),
+        stage = None if pd.isnull(fields[2]) else Stage.objects.get(name__exact=fields[2])
+        return self.model(launch_vehicle=LaunchVehicle.objects.get(name__exact=fields[0]),
                           stage_number=fields[1],
                           stage=stage,
                           dummy=fields[3])

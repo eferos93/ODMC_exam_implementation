@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ stage.name }}'s details:</h1>
+        <ul>
+            <li><strong>Manufacturer: </strong>
+                <a href="{% url 'space_missions:organisation-detail' pk=stage.manufacturer_id %}">
+                    {% if stage.manufacturer.name %}
+                        {{ stage.manufacturer.name }}
+                    {% else %}
+                        Unknown
+                    {% endif %}
+                </a>
+            </li>
+            <li><strong>Engine: </strong>
+                <a href="{% url 'space_missions:engine-detail' pk=stage.engine_id %}">
+                    {% if stage.engine.name %}
+                        {{ stage.engine.name }}
+                    {% else %}
+                        Unknown
+                    {% endif %}
+                </a>
+            </li>
+            <li><strong>Length: </strong>{{ stage.length }} meters</li>
+            <li><strong>Diameter: </strong>{{ stage.diameter }} meters</li>
+            <li><strong>Dry Mass: </strong>{{ stage.dry_mass }} Kg</li>
+            <li><strong>Launch Mass: </strong>{{ stage.launch_mass }} Kg</li>
+            <li><strong>Thrust: </strong>{{ stage.thrust }} kN</li>
+            <li><strong>Burn Duration: </strong>{{ stage.burn_duration }} seconds</li>
+        </ul>
+    </div>
+{% endblock %}
