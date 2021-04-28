@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.views import generic
 from . import models
 from .models import Organisation, Country, Astronaut, Engine, LaunchVehicle, VehicleStage, Mission, AstronautOccupation, \
-    Selection, AstronautSelection
+    Selection, AstronautSelection, Stage
 
 
 class CountryList(generic.ListView):
@@ -236,3 +236,22 @@ def download_astronauts_selections_csv(request):
         writer.writerow([astronaut_selection.astronaut.name, astronaut_selection.selection.name,
                          astronaut_selection.selection_year])
     return response
+
+
+def download_stages_csv(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="Stages.csv"'}
+    )
+    writer = csv.writer(response)
+    writer.writerow(['name', 'dry_mass', 'launch_mass', 'thrust', 'burn_duration',
+                     'length', 'diameter', 'engine', 'manufacturer'])
+
+    for stage in Stage.objects.all():
+        manufacturer = None if stage.manufacturer is None else stage.manufacturer.code
+        engine = None if stage.engine is None else stage.engine.name
+        writer.writerow([stage.name, stage.dry_mass, stage.launch_mass, stage.thrust,
+                         stage.burn_duration, stage.length, stage.diameter, engine,
+                         manufacturer])
+    return response
+

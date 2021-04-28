@@ -20,6 +20,7 @@ urlpatterns = [
     path('engines/download-csv', views.download_engines_csv, name='engines-csv'),
     path('stages/', views.StageList.as_view(), name='stages'),
     path('stage/<int:pk>/', views.StageDetail.as_view(), name='stage-detail'),
+    path('stages/download-csv', views.download_stages_csv, name='stages-csv'),
     path('launchvehicles/', views.LaunchVehicleList.as_view(), name='launch-vehicles'),
     path('launchvehicle/<int:pk>/', views.LaunchVehicleDetail.as_view(), name='launch-vehicle-detail'),
     path('launchvehicles/download-csv', views.download_launch_vehicles_csv, name='launchvehicles-csv'),

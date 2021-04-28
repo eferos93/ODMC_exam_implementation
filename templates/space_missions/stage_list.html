@@ -2,6 +2,9 @@
 
 {% block content %}
     <h1>Stage List</h1>
+    <form action='{% url 'space_missions:stages-csv' %}' method='GET'>
+        <button type='submit'>Get CSV</button>
+    </form>
     {% if stage_list %}
         <ul>
             {% for stage in stage_list %}
