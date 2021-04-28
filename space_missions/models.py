@@ -8,6 +8,9 @@ from django.utils.text import slugify
 # Create your models here.
 
 class Country(models.Model):
+    class Meta:
+        ordering = ['name']
+
     code = models.CharField(max_length=2, unique=True)
     name = models.CharField(max_length=40, null=True, blank=True)
 
@@ -24,11 +27,11 @@ class Country(models.Model):
     def __str__(self):
         return self.name
 
+
+class Astronaut(models.Model):
     class Meta:
         ordering = ['name']
 
-
-class Astronaut(models.Model):
     astronaut_id = models.CharField(max_length=256, unique=True)
     name = models.CharField(max_length=40)
     original_name = models.CharField(max_length=40)
@@ -49,18 +52,28 @@ class Astronaut(models.Model):
     birth_year = models.PositiveSmallIntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2010)])
     nationality = models.ForeignKey('space_missions.Country', on_delete=models.SET_NULL, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Selection(models.Model):
+    class Meta:
+        ordering = ['name']
+
     name = models.CharField(max_length=40, unique=True)
     missions = models.ManyToManyField('space_missions.Mission')
     astronauts = models.ManyToManyField('space_missions.Astronaut',
                                         through='AstronautSelection',
                                         related_name='selections')
 
+    def __str__(self):
+        return self.name
+
 
 class AstronautSelection(models.Model):
     class Meta:
         unique_together = [('astronaut', 'selection', 'selection_year')]
+        ordering = ['astronaut', 'selection']
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     selection = models.ForeignKey('space_missions.Selection', on_delete=models.CASCADE)
@@ -68,10 +81,14 @@ class AstronautSelection(models.Model):
                                                                   MaxValueValidator(timezone.now().year)]
                                                       )
 
+    def __str__(self):
+        return 'Astronaut: ' + str(self.astronaut) + '; Selection: ' + str(self.selection)
+
 
 class AstronautOccupation(models.Model):
     class Meta:
         unique_together = [('astronaut', 'mission', 'role', 'join_year')]
+        ordering = ['astronaut', 'mission']
 
     astronaut = models.ForeignKey('space_missions.Astronaut', on_delete=models.CASCADE)
     mission = models.ForeignKey('space_missions.Mission', on_delete=models.CASCADE)
@@ -80,8 +97,14 @@ class AstronautOccupation(models.Model):
                                                              MaxValueValidator(timezone.now().year)]
                                                  )
 
+    def __str__(self):
+        return 'Astronaut: ' + str(self.astronaut) + '; Mission: ' + str(self.mission)
+
 
 class Launch(models.Model):
+    class Meta:
+        ordering = ['launch_id']
+
     SF_choices = ('Success', 'Fail', 'unknown')
     launch_types = ('Orbital', 'DeepSpaceMission', 'unknown')
 
@@ -92,8 +115,14 @@ class Launch(models.Model):
     success_or_fail = models.CharField(max_length=20, choices=[(d, d) for d in SF_choices])
     launch_type = models.CharField(max_length=20, choices=[(d, d) for d in launch_types])
 
+    def __str__(self):
+        return self.launch_id
+
 
 class Mission(models.Model):
+    class Meta:
+        ordering = ['name']
+
     launch = models.OneToOneField('space_missions.Launch', on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=30, unique=True)
     astronauts = models.ManyToManyField('space_missions.Astronaut',
@@ -101,8 +130,14 @@ class Mission(models.Model):
                                         through='AstronautOccupation',
                                         related_name='missions')
 
+    def __str__(self):
+        return self.name
+
 
 class LaunchVehicle(models.Model):
+    class Meta:
+        ordering = ['name']
+
     name = models.CharField(max_length=256, unique=True)
     min_stage = models.IntegerField(null=True, blank=True)
     max_stage = models.IntegerField(null=True, blank=True)
@@ -133,8 +168,14 @@ class LaunchVehicle(models.Model):
     manufacturer = models.ForeignKey('space_missions.Organisation',
                                      on_delete=models.SET_NULL, blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Stage(models.Model):
+    class Meta:
+        ordering = ['name']
+
     name = models.CharField(max_length=256, unique=True)
     dry_mass = models.FloatField(null=True)
     launch_mass = models.FloatField(null=True)
@@ -147,8 +188,14 @@ class Stage(models.Model):
     engine = models.ForeignKey('space_missions.Engine', on_delete=models.SET_NULL,
                                null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Engine(models.Model):
+    class Meta:
+        ordering = ['name']
+
     name = models.CharField(max_length=256, unique=True)
     manufacturer = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, null=True, blank=True)
     mass = models.FloatField(null=True, blank=True)
@@ -158,10 +205,14 @@ class Engine(models.Model):
     burn_duration = models.FloatField(null=True, blank=True)
     chambers = models.PositiveSmallIntegerField(null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class VehicleStage(models.Model):
     class Meta:
         unique_together = [('launch_vehicle', 'stage', 'stage_number', 'dummy')]
+        ordering = ['launch_vehicle', 'stage']
 
     launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle',
                                        on_delete=models.CASCADE)
@@ -182,8 +233,14 @@ class VehicleStage(models.Model):
     stage_number = models.CharField(max_length=2, choices=stage_numbers)
     dummy = models.CharField(max_length=3, choices=[(value, value) for value in ['yes', 'no']])
 
+    def __str__(self):
+        return 'Vehicle: ' + str(self.launch_vehicle) + '; Stage: ' + str(self.stage)
+
 
 class Organisation(models.Model):
+    class Meta:
+        ordering = ['name']
+
     code = models.CharField(max_length=256, unique=True)
     name = models.CharField(max_length=256, null=True)
     english_name = models.CharField(max_length=256, null=True)
@@ -193,3 +250,6 @@ class Organisation(models.Model):
     longitude = models.FloatField(null=True)
     latitude = models.FloatField(null=True)
     parent_organisation = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
