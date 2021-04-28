@@ -9,6 +9,7 @@ from .models import Organisation, Country, Astronaut, Engine, LaunchVehicle, Veh
 
 
 class CountryList(generic.ListView):
+    paginate_by = 20
     model = models.Country
 
 
@@ -17,6 +18,7 @@ class CountryDetail(generic.DetailView):
 
 
 class AstronautList(generic.ListView):
+    paginate_by = 20
     model = models.Astronaut
 
 
@@ -29,10 +31,12 @@ class OrganisationDetail(generic.DetailView):
 
 
 class OrganisationList(generic.ListView):
+    paginate_by = 20
     model = models.Organisation
 
 
 class EngineList(generic.ListView):
+    paginate_by = 20
     model = models.Engine
 
 
@@ -45,10 +49,12 @@ class StageDetail(generic.DetailView):
 
 
 class StageList(generic.ListView):
+    paginate_by = 20
     model = models.Stage
 
 
 class LaunchVehicleList(generic.ListView):
+    paginate_by = 20
     model = models.LaunchVehicle
 
 
@@ -57,6 +63,7 @@ class LaunchVehicleDetail(generic.DetailView):
 
 
 class MissionList(generic.ListView):
+    paginate_by = 20
     model = models.Mission
 
 
@@ -65,6 +72,7 @@ class MissionDetail(generic.DetailView):
 
 
 class SelectionList(generic.ListView):
+    paginate_by = 20
     model = models.Selection
 
 
