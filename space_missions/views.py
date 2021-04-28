@@ -112,9 +112,10 @@ def download_astronauts_csv(request):
     writer = csv.writer(response)
     writer.writerow(['name', 'original_name', 'sex', 'background', 'birth_year', 'nationality'])
     for astronaut in Astronaut.objects.all():
+        nationality = None if astronaut.nationality is None else astronaut.nationality.code
         writer.writerow([astronaut.name, astronaut.original_name, astronaut.get_sex_display(),
                          astronaut.get_background_display(), astronaut.birth_year,
-                         astronaut.nationality.code])
+                         nationality])
 
     return response
 
@@ -128,7 +129,8 @@ def download_engines_csv(request):
     writer.writerow(['name', 'manufacturer', 'mass', 'impulse', 'thrust', 'isp',
                      'burn_duration', 'chambers'])
     for engine in Engine.objects.all():
-        writer.writerow([engine.name, engine.manufacturer.code, engine.mass,
+        manufacturer = None if engine.manufacturer is None else engine.manufacturer.code
+        writer.writerow([engine.name, manufacturer, engine.mass,
                          engine.impulse, engine.thrust, engine.isp,
                          engine.burn_duration, engine.chambers])
 
@@ -145,10 +147,11 @@ def download_launch_vehicles_csv(request):
                      'length', 'diameter', 'vehicle_class', 'manufacturer'])
 
     for vehicle in LaunchVehicle.objects.all():
+        manufacturer = None if vehicle.manufacturer is None else vehicle.manufacturer.code
         writer.writerow([vehicle.name, vehicle.min_stage, vehicle.max_stage,
                          vehicle.launch_mass, vehicle.TO_thrust,
                          vehicle.length, vehicle.diameter, vehicle.get_vehicle_class_display(),
-                         vehicle.manufacturer.code])
+                         manufacturer])
 
     return response
 
@@ -179,8 +182,12 @@ def download_missions_csv(request):
                      'success_or_fail', 'launch_type'])
 
     for mission in Mission.objects.all():
-        writer.writerow([mission.name, mission.launch.launch_id, mission.launch.date,
-                         mission.launch.launch_vehicle.name, mission.launch.organisation.code,
+        launch_id = None if mission.launch is None else mission.launch.launch_id
+        launch_date = None if mission.launch is None else mission.launch.date
+        vehicle = None if mission.launch.launch_vehicle is None else mission.launch.launch_vehicle.name
+        organisation = None if mission.launch.organisation is None else mission.launch.organisation.code
+        writer.writerow([mission.name, launch_id, launch_date,
+                         vehicle, organisation,
                          mission.launch.launch_type])
 
     return response
