@@ -5,22 +5,18 @@
         <h1>{{ stage.name }}'s details:</h1>
         <ul>
             <li><strong>Manufacturer: </strong>
+            {% if stage.manufacturer_id %}
                 <a href="{% url 'space_missions:organisation-detail' pk=stage.manufacturer_id %}">
-                    {% if stage.manufacturer.name %}
                         {{ stage.manufacturer.name }}
-                    {% else %}
-                        Unknown
-                    {% endif %}
                 </a>
+            {% endif %}
             </li>
             <li><strong>Engine: </strong>
-                <a href="{% url 'space_missions:engine-detail' pk=stage.engine_id %}">
-                    {% if stage.engine.name %}
-                        {{ stage.engine.name }}
-                    {% else %}
-                        Unknown
-                    {% endif %}
-                </a>
+                {% if stage.engine_id %}
+                    <a href="{% url 'space_missions:engine-detail' pk=stage.engine_id %}">
+                            {{ stage.engine.name }}
+                    </a>
+                {% endif %}
             </li>
             <li><strong>Length: </strong>{{ stage.length }} meters</li>
             <li><strong>Diameter: </strong>{{ stage.diameter }} meters</li>

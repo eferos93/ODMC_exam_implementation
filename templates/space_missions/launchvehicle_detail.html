@@ -24,9 +24,11 @@
                 {% endif %}
             </li>
             <li><strong>Manufacturer: </strong>
-                <a href="{% url 'space_missions:organisation-detail' pk=launchvehicle.manufacturer_id %}">
-                    {{ launchvehicle.manufacturer.name }}
-                </a>
+                {% if launchvehicle.manufacturer_id %}
+                    <a href="{% url 'space_missions:organisation-detail' pk=launchvehicle.manufacturer_id %}">
+                        {{ launchvehicle.manufacturer.name }}
+                    </a>
+                {% endif %}
             </li>
             <li><strong>Minimum number of stages: </strong>{{ launchvehicle.min_stage }}</li>
             <li><strong>Maximum number of stages: </strong>{{ launchvehicle.max_stage }}</li>

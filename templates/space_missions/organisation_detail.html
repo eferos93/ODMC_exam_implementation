@@ -8,17 +8,21 @@
             <li><strong>English Name: </strong> {{ organisation.english_name }}</li>
             <li><strong>Location: </strong> {{ organisation.location }}</li>
             <li><strong>Country: </strong>
-                <a href="{% url 'space_missions:country-detail' pk=organisation.country_id %}">
-                    {{ organisation.country.name }}
-                </a>
+                {% if organisation.country_id %}
+                    <a href="{% url 'space_missions:country-detail' pk=organisation.country_id %}">
+                        {{ organisation.country.name }}
+                    </a>
+                {% endif %}
             </li>
             <li><strong>Longitude: </strong> {{ organisation.longitude }}</li>
             <li><strong>Latitude: </strong> {{ organisation.latitude }}</li>
             <li>
                 <strong>Parent organisation: </strong>
-                <a href="{% url 'space_missions:organisation-detail' pk=organisation.parent_organisation_id %}">
-                    {{ organisation.parent_organisation.name }}
-                </a>
+                {% if organisation.parent_organisation_id %}
+                    <a href="{% url 'space_missions:organisation-detail' pk=organisation.parent_organisation_id %}">
+                        {{ organisation.parent_organisation.name }}
+                    </a>
+                {% endif %}
             </li>
         </ul>
     </div>

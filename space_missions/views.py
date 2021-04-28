@@ -82,10 +82,12 @@ def download_organisations_csv(request):
                      'country', 'longitude', 'latitude', 'parent_organisation']
                     )
     for organisation in Organisation.objects.all():
+        parent_organisation = None if organisation.parent_organisation is None else organisation.parent_organisation.code
+        country = None if organisation.country is None else organisation.country.code
         writer.writerow([organisation.code, organisation.name,
                          organisation.english_name, organisation.location,
-                         organisation.country.code, organisation.longitude, organisation.latitude,
-                         organisation.parent_organisation.code])
+                         country, organisation.longitude, organisation.latitude,
+                         parent_organisation])
     return response
 
 

@@ -10,7 +10,11 @@
             <li><strong>Background: </strong>{{ astronaut.get_background_display }}</li>
             <li>
                 <strong>Nationality</strong>
-                <a href="{% url 'space_missions:country-detail' pk=astronaut.nationality.pk %}">{{ astronaut.nationality.name }}</a>
+                {% if astronaut.nationality_id %}
+                    <a href="{% url 'space_missions:country-detail' pk=astronaut.nationality.pk %}">
+                        {{ astronaut.nationality.name }}
+                    </a>
+                {% endif %}
             </li>
         </ul>
     </div>

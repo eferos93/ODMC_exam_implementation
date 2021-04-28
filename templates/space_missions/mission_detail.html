@@ -7,14 +7,18 @@
             <li><strong>Launch ID: </strong>{{ mission.launch.launch_id }}</li>
             <li><strong>Date: </strong><time>{{ mission.launch.date }}</time></li>
             <li><strong>Organisation: </strong>
-                <a href="{% url 'space_missions:organisation-detail' pk=mission.launch.organisation_id %}">
-                    {{ mission.launch.organisation.name }}
-                </a>
+                {% if mission.launch.organisation_id %}
+                    <a href="{% url 'space_missions:organisation-detail' pk=mission.launch.organisation_id %}">
+                        {{ mission.launch.organisation.name }}
+                    </a>
+                {% endif %}
             </li>
             <li><strong>Vehicle: </strong>
-                <a href="{% url 'space_missions:launch-vehicle-detail' pk=mission.launch.launch_vehicle_id %}">
-                    {{ mission.launch.launch_vehicle.name }}
-                </a>
+                {% if mission.launch.launch_vehicle_id %}
+                    <a href="{% url 'space_missions:launch-vehicle-detail' pk=mission.launch.launch_vehicle_id %}">
+                        {{ mission.launch.launch_vehicle.name }}
+                    </a>
+                {% endif %}
             </li>
             <li>
                 <strong>Astronauts:</strong>
