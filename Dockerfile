@@ -2,7 +2,7 @@
 FROM python:3.8-alpine
 
 # set work directory
-WORKDIR /app
+WORKDIR /space-missions-app
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
