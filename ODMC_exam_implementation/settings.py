@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='afdbkbwefwjvckjvb32534')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'odmc-space-missions.herokuapp.com']
 
 # Application definition
 
