@@ -11,10 +11,10 @@
                     </a>
                 {% endif %}
             </li>
-            <li><strong>Mass: </strong>{{ engine.mass }} Kg</li>
-            <li><strong>Impulse: </strong> {{ engine.impulse }} kN</li>
-            <li><strong>Thrust: </strong> {{ engine.thrust }} kN</li>
-            <li><strong>Isp: </strong> {{ engine.isp }} seconds</li>
+            <li><strong><a href="https://en.wikipedia.org/wiki/Mass">Mass</a>: </strong>{{ engine.mass }} Kg</li>
+            <li><strong><a href="https://en.wikipedia.org/wiki/Impulse_(physics)">Impulse</a>: </strong> {{ engine.impulse }} kN/s</li>
+            <li><strong><a href="https://en.wikipedia.org/wiki/Thrust">Thrust</a>: </strong> {{ engine.thrust }} kN</li>
+            <li><strong><a href="https://en.wikipedia.org/wiki/Specific_impulse">Isp</a>: </strong> {{ engine.isp }} seconds</li>
             <li><strong>Burn Duration: </strong>{{ engine.burn_duration }} seconds</li>
             <li><strong>Number of Chambers: </strong>{{ engine.chambers }}</li>
         </ul>
