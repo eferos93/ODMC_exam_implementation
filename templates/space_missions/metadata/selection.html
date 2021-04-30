@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Selection Metadata</h1>
+    <ul>
+        <li><strong>Name:</strong> the selection's identifier.</li>
+        <li><strong>Missions:</strong> list of missions identifiers for the particular selection procedure</li>
+        <li><strong>Astronauts:</strong> list of astronauts that has been selected, together with the fields:
+            <ul>
+                <li>
+                    <em>Name:</em> the astronaut name.
+                </li>
+                <li><em>Selections year:</em> the year of selection.</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>Data</h2>
+    <ul>
+        <li>
+            <a href="{% url 'space_missions:selections-list' %}">Click here to view the full data (selction+missions+astronauts)</a>
+        </li>
+        <li><a>To <em>download</em> the data in csv format, click:</a>
+            <ul>
+                <li>
+                    <a href="{% url 'space_missions:selections-csv' %}">here for the selection-missions table;</a>
+                </li>
+                <li>
+                    <a href="{% url 'space_missions:astroanutsselections-csv' %}">here for the selections-astronauts table.</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}

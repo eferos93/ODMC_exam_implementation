@@ -35,7 +35,8 @@ urlpatterns = [
     path('missions/', views.MissionList.as_view(), name='missions-list'),
     path('mission/<int:pk>/', views.MissionDetail.as_view(), name='mission-detail'),
     path('missions/download-csv', views.download_missions_csv, name='missions-csv'),
-    path('selections/', views.SelectionList.as_view(), name='selections'),
+    path('selections-metadata/', views.SelectionMetadata.as_view(), name='selections'),
+    path('selections/', views.SelectionList.as_view(), name='selections-list'),
     path('selection/<int:pk>/', views.SelectionDetail.as_view(), name='selection-detail'),
     path('selections/download-csv', views.download_selections_csv, name='selections-csv'),
 ]
