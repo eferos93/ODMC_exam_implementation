@@ -26,11 +26,11 @@
                     <ul>
                          {% for astronaut_selection in selection.astronautselection_set.all %}
                              <li>
-                                 Name:
+                                 <em>Name:</em>
                                  <a href="{% url 'space_missions:astronaut-detail' pk=astronaut_selection.astronaut_id %}">
                                      {{ astronaut_selection.astronaut.name }}
                                  </a>;
-                                Selection year: {{ astronaut_selection.selection_year }}
+                                 <em>Selection year:</em> {{ astronaut_selection.selection_year }}
                              </li>
                          {% endfor %}
                     </ul>

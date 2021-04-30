@@ -11,11 +11,11 @@
                     <ul>
                         {% for vehicle_stage in launchvehicle.vehiclestage_set.all %}
                             <li>
-                                Stage Name: <a href="{% url 'space_missions:stage-detail' pk=vehicle_stage.stage_id %}">
+                                <em>Stage Name:</em> <a href="{% url 'space_missions:stage-detail' pk=vehicle_stage.stage_id %}">
                                     {{ vehicle_stage.stage.name }}
                                 </a>;
-                                Stage Number: {{ vehicle_stage.get_stage_number_display }};
-                                Dummy: {{ vehicle_stage.dummy }}
+                                <em>Stage Number:</em> {{ vehicle_stage.get_stage_number_display }};
+                                <em>Dummy:</em> {{ vehicle_stage.dummy }}
                             </li>
                         {% endfor %}
                     </ul>
