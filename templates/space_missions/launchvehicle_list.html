@@ -2,12 +2,12 @@
 
 {% block content %}
     <h1>Launch Vehicle List</h1>
-    <form action='{% url 'space_missions:launchvehicles-csv' %}' method='GET'>
-        <button type='submit'>Get LaunchVehicle.csv</button>
-    </form>
-    <form action='{% url 'space_missions:vehiclestages-csv' %}' method='GET'>
-        <button type='submit'>Get VehicleStages.csv</button>
-     </form>
+{#    <form action='{% url 'space_missions:launchvehicles-csv' %}' method='GET'>#}
+{#        <button type='submit'>Get LaunchVehicle.csv</button>#}
+{#    </form>#}
+{#    <form action='{% url 'space_missions:vehiclestages-csv' %}' method='GET'>#}
+{#        <button type='submit'>Get VehicleStages.csv</button>#}
+{#     </form>#}
     {% if launchvehicle_list %}
         <ul>
             {% for launch_vehicle in launchvehicle_list %}
