@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Organisation Metadata</h1>
+    <ul>
+        <li><strong>Name:</strong> organisation's full name.</li>
+        <li><strong>Code:</strong> organisation's identifier.</li>
+        <li><strong>Location:</strong> organisation's location.</li>
+        <li><strong>Country:</strong> the identifier that referes to the <a href="{% url 'space_missions:countries' %}">country table</a>.</li>
+        <li><strong>English name:</strong> the english name of the organisation.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Longitude">Longitude</a>:</strong> the longitude coordinate of the organisation.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Latitude">Latitude</a>:</strong> the latitude coordinate of the organisation.</li>
+        <li><strong>Parent Organisation:</strong> the code of the parent organisation, can be empty.</li>
+    </ul>
+    <h2>Data</h2>
+    <ul>
+        <li>
+            <a href="{% url 'space_missions:organisations-list' %}">Click here to view the organisation list.</a>
+        </li>
+        <li><a href="{% url 'space_missions:organisation-csv' %}">Click here to download the organisations table in csv format</a></li>
+    </ul>
+{% endblock %}
