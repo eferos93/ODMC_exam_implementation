@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Stage Metadata</h1>
+    <ul>
+        <li><strong>Name:</strong> name of the vehicle, assigned by the <a href="#">manufacturer</a>.</li> {# TODO: add link to org metadata page #}
+        <li><strong>Manufacturer:</strong> <a href="#">manufacturer</a>'s identifier.<em></em></li> {# TODO: add link to org metadata page #}
+        <li><strong>Engine:</strong> <a href="{% url 'space_missions:engines' %}">engine</a>'s identifier.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Length">Length</a>:</strong> <a href="https://en.wikipedia.org/wiki/Length">length</a> in meters.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Diameter">Diameter</a>:</strong></li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Vehicle_weight#Dry_weight">Dry Mass</a>:</strong> weight of a vehicle without any consumables, passengers, or cargo, in Kg.</li>
+        <li><strong>Launch <a href="https://en.wikipedia.org/wiki/Mass">Mass</a>:</strong> the mass at the moment of launch, expressed in tonne.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Thrust">Thrust</a>:</strong> thrust expressed in kN</li>
+        <li><strong>Burn Duration:</strong> the period between the start and the end of burning process is called the burning duration, expressed in seconds.</li>
+    </ul>
+    <h2>Data</h2>
+    <ul>
+        <li><a href="{% url 'space_missions:stages-list' %}">Click here to view the Stage data.</a></li>
+        <li><a href="{% url 'space_missions:stages-csv' %}">Click here to download the stages data in csv format.</a></li>
+    </ul>
+{% endblock %}

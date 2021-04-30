@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Vehicle metadata</h1>
+    <ul>
+        <li><strong>Name:</strong> vehicle name, given by its <a href="#">manufacturer</a></li> {# TODO: add org link to metadata page #}
+        <li><strong>Class:</strong> the vehicle type. It can be one of the following values:
+            <ul>
+                <li>Extraterrestrial Deep Space Launch</li>
+                <li>Missile</li>
+                <li>Orbital Vehicle</li>
+                <li>Research Rocket</li>
+                <li>Reentry Test Vehicle</li>
+                <li>Exoatmospheric test</li>
+                <li>Exoatmospheric weather rocket</li>
+                <li>Endoatmospheric missile</li>
+                <li>Cruise missile</li>
+                <li>Endoatmospheric reentry test vehicle</li>
+                <li>Endoatmospheric test/research</li>
+                <li>Endoatmospheric Weather rocket</li>
+            </ul>
+        </li>
+        <li><strong>Stages:</strong> set of stages that compose the vehicle.
+            <ul>
+                <li><em>Stage Name:</em> the identifier of the <a href="{% url 'space_missions:stages' %}">stage</a></li>
+                <li><em>Stage Number:</em> integer from -1 to 6, indicating the sequence of stages, or the value '<a href="https://en.wikipedia.org/wiki/Payload_fairing">Fairing</a>'</li>
+                <li><em>Dummy:</em> binary value 'yes' or 'no' indicating if it is a dummy stage or not.</li>
+            </ul>
+        </li>
+        <li><strong>Manufacturer:</strong> <a href="#">manufacturer</a> identifier.</li> {# TODO: add link to org metadata page #}
+        <li><strong>Minimum number of stages:</strong> integer indicating the minimum number of stages supported by the vehicle</li>
+        <li><strong>Maximum number of stages:</strong> integer indicating the maximum number of stages supported by the vehicle</li>
+        <li><strong>Launch <a href="https://en.wikipedia.org/wiki/Mass">Mass</a>:</strong> the mass at the moment of launch, expressed in tons.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Thrust">Thrust</a>:</strong> thrust expressed in kN</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Length">Length</a>:</strong> <a href="https://en.wikipedia.org/wiki/Length">length</a> in meters.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Diameter">Diameter</a>:</strong></li>
+    </ul>
+    <h2>Data</h2>
+    <ul>
+        <li><a href="{% url 'space_missions:launch-vehicles-list' %}">Click here to view the full Launch Vehicles data.</a></li>
+        <li>To <em>download</em> the data in csv format click:
+            <ul>
+                <li><a href="{% url 'space_missions:launchvehicles-csv' %}">here for the launch vehicle list.</a></li>
+                <li><a href="{% url 'space_missions:vehiclestages-csv' %}">here for the vehicle-stages list.</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
