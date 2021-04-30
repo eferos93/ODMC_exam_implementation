@@ -80,6 +80,41 @@ class SelectionDetail(generic.DetailView):
     model = models.Selection
 
 
+metadata_url = 'space_missions/metadata/'
+
+
+class AstronautMetadata(generic.TemplateView):
+    template_name = metadata_url + 'astronaut.html'
+
+
+class CountryMetadata(generic.TemplateView):
+    template_name = metadata_url + 'country.html'
+
+
+class EngineMetadata(generic.TemplateView):
+    template_name = metadata_url + 'engine.html'
+
+
+class LaunchVehicleMetadata(generic.TemplateView):
+    template_name = metadata_url + 'launch_vehicle.html'
+
+
+class MissionAndLaunchMetadata(generic.TemplateView):
+    template_name = metadata_url + 'launch_mission.html'
+
+
+class OrganisationMetadata(generic.TemplateView):
+    template_name = metadata_url + 'organisation.html'
+
+
+class SelectionMetadata(generic.TemplateView):
+    template_name = metadata_url + 'selection.html'
+
+
+class StageMetadata(generic.TemplateView):
+    template_name = metadata_url + 'stage.html'
+
+
 def download_organisations_csv(request):
     response = HttpResponse(
         content_type='text/csv',
@@ -262,4 +297,3 @@ def download_stages_csv(request):
                          stage.burn_duration, stage.length, stage.diameter, engine,
                          manufacturer])
     return response
-

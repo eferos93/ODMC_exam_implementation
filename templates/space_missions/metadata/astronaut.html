@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Astronaut Metadata</h1>
+    <ul>
+        <li><strong>Full Name:</strong> the full name of the astronaut, more precisely "<em>surname, name</em>".</li>
+        <li><strong>Birth year:</strong> the birth year of the astronaut.</li>
+        <li><strong>Sex:</strong> the astronaut biological sex, might be unspecified.</li>
+        <li><strong>Background: </strong>military, civilian or unspecified.</li>
+        <li>
+            <strong>Nationality: </strong>code
+            <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">
+                ISO 3166-1 alpha-2
+            </a> that refers to the <a href="#">Country</a> table {# TODO: insert link to country metadata #}
+        </li>
+    </ul>
+    <h2>Data</h2>
+    <ul>
+        <li><a href="{% url 'space_missions:astronauts-list' %}">Click here to view the list of all astronauts</a></li>
+        <li><a href="{% url 'space_missions:astronauts-csv' %}">Click here to download the data in csv format</a></li>
+    </ul>
+{% endblock %}

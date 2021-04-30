@@ -26,7 +26,7 @@
                     <ul>
                         {% for astronaut_occupation in mission.astronautoccupation_set.all %}
                             <li>
-                                <em>Name:</em> <a href="{% url 'space_missions:astronaut-detail' pk=astronaut_occupation.astronaut_id %}">
+                                <em>Full Name:</em> <a href="{% url 'space_missions:astronaut-detail' pk=astronaut_occupation.astronaut_id %}">
                                     {{ astronaut_occupation.astronaut.name }}
                                 </a>;
                                 <em>Role:</em> {{ astronaut_occupation.role }};

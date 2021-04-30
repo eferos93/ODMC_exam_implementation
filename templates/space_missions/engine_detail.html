@@ -7,7 +7,7 @@
             <li><strong>Manufacturer: </strong>
                 {% if engine.manufacturer_id %}
                     <a href="{% url 'space_missions:organisation-detail' pk=engine.manufacturer_id %}">
-                        {{ engine.manufacturer.name }}
+                        {{ engine.manufacturer.code }}
                     </a>
                 {% endif %}
             </li>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Engine Metadata</h1>
+    <ul>
+        <li><strong>Name:</strong> the name of the engine, given by the <a href="#">manufacturer</a></li> {# TODO: insert link to org metadata #}
+        <li><strong>Manufacturer:</strong> the code of the <a href="#">organisation</a> that manufactured the engine.</li>  {# TODO: insert link to org metadata #}
+        <li><strong><a href="https://en.wikipedia.org/wiki/Mass">Mass</a>: </strong> the <a href="https://en.wikipedia.org/wiki/Mass">mass</a> in Kg of the engine.</li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Impulse_(physics)">Impulse</a>: </strong> the <a href="https://en.wikipedia.org/wiki/Impulse_(physics)">impulse</a> of the engine, expressed in <a href="https://en.wikipedia.org/wiki/Newton_(unit)#:~:text=Commonly%20seen%20as%20kilonewtons,
+                -It%20is%20common&text=One%20kilonewton%2C%201%20kN%2C%20is,%C3%97%209.81%20m%2Fs2.">kN</a>/s.</li>
+        <li>
+            <strong>
+                <a href="https://en.wikipedia.org/wiki/Thrust">Thrust</a>:
+            </strong>
+                the <a href="https://en.wikipedia.org/wiki/Thrust">thrust</a> of the engine, expressed in
+                <a href="https://en.wikipedia.org/wiki/Newton_(unit)#:~:text=Commonly%20seen%20as%20kilonewtons,
+                -It%20is%20common&text=One%20kilonewton%2C%201%20kN%2C%20is,%C3%97%209.81%20m%2Fs2.">kN</a>
+        </li>
+        <li><strong><a href="https://en.wikipedia.org/wiki/Specific_impulse">Isp</a>:</strong> <a href="https://en.wikipedia.org/wiki/Specific_impulse">specific impulse</a>, expressed in seconds</li>
+        <li><strong>Burn Duration:</strong> the period between the start and the end of burning process is called the burning duration, expressed in seconds.</li>
+        <li><strong>Number of Chambers:</strong> number of <a href="https://en.wikipedia.org/wiki/Combustion_chamber">combustion chambers</a>.</li>
+    </ul>
+    <h2>Data</h2>
+    <ul>
+        <li><a href="{% url 'space_missions:engines-list' %}">Click here to view the list of engines.</a></li>
+        <li><a href="{% url 'space_missions:engines-csv' %}">Click here to download the engine list in csv format.</a></li>
+    </ul>
+{% endblock %}

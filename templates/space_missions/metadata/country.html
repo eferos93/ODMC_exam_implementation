@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Country Metadata</h1>
+    <ul>
+        <li><strong>Code:</strong> the country <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">
+                ISO 3166-1 alpha-2
+            </a> code.
+        </li>
+        <li><strong>Name:</strong> the country name.</li>
+        <li><strong>Continent: </strong> the continent name, the possible values are <em>Africa, Americas, Asia, Europe, Oceania, Antarctica.</em></li>
+    </ul>
+    <h2>Data</h2>
+    <ul>
+        <li><a href="{% url 'space_missions:countries-list' %}">Click here to view the list of the countries.</a></li>
+        <li><a href="{% url 'space_missions:countries-csv' %}">Click here to download the country data in csv format.</a></li>
+    </ul>
+{% endblock %}

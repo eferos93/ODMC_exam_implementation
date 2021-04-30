@@ -4,10 +4,12 @@ from . import views
 app_name = 'space_missions'
 
 urlpatterns = [
-    path('countries/', views.CountryList.as_view(), name='countries'),
+    path('countries-metadata/', views.CountryMetadata.as_view(), name='countries'),
+    path('countries/', views.CountryList.as_view(), name='countries-list'),
     path('country/<int:pk>/', views.CountryDetail.as_view(), name='country-detail'),
     path('countries/download-csv', views.download_countries_csv, name='countries-csv'),
-    path('astronauts/', views.AstronautList.as_view(), name='astronauts'),
+    path('astronauts-metadata/', views.AstronautMetadata.as_view(), name='astronauts'),
+    path('astronauts/', views.AstronautList.as_view(), name='astronauts-list'),
     path('astronaut/<int:pk>/', views.AstronautDetail.as_view(), name='astronaut-detail'),
     path('astronauts/download-csv', views.download_astronauts_csv, name='astronauts-csv'),
     path('astronautsoccupations/download-csv', views.download_astronaut_occupations_csv, name='astronautoccupations-csv'),
@@ -15,7 +17,8 @@ urlpatterns = [
     path('organisations/', views.OrganisationList.as_view(), name='organisations'),
     path('organisation/<int:pk>/', views.OrganisationDetail.as_view(), name='organisation-detail'),
     path('organisations/download-csv', views.download_organisations_csv, name='organisation-csv'),
-    path('engines/', views.EngineList.as_view(), name='engines'),
+    path('engines-metadata/', views.EngineMetadata.as_view(), name='engines'),
+    path('engines/', views.EngineList.as_view(), name='engines-list'),
     path('engine/<int:pk>/', views.EngineDetail.as_view(), name='engine-detail'),
     path('engines/download-csv', views.download_engines_csv, name='engines-csv'),
     path('stages/', views.StageList.as_view(), name='stages'),
