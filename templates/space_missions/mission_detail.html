@@ -9,7 +9,7 @@
             <li><strong>Organisation: </strong>
                 {% if mission.launch.organisation_id %}
                     <a href="{% url 'space_missions:organisation-detail' pk=mission.launch.organisation_id %}">
-                        {{ mission.launch.organisation.name }}
+                        {{ mission.launch.organisation.code }}
                     </a>
                 {% endif %}
             </li>

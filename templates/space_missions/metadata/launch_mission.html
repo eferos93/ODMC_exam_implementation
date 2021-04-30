@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Mission and Launch Metadata</h1>
+    <ul>
+        <li><strong>Name:</strong> the mission's identifier.</li>
+        <li><strong>Launch ID:</strong> the launch identifier.</li>
+        <li><strong>Date: </strong> the launch date, expressed in the format Mon-DD-YYYY</li>
+        <li><strong>Organisation:</strong> identifier of the <a href="#">organisation</a> that organised the launch</li>{# TODO: add link to org metadata page #}
+        <li><strong>Vehicle:</strong> vehicle's identifier that refers to the <a href="{% url 'space_missions:launch-vehicles' %}">Launch Vehicle table</a></li>
+        <li><strong>Astronauts: </strong> list of astronauts that participated in this missions, together with the following data:
+            <ul>
+                <li><em>Full Name:</em> the full name of the astronaut, more precisely "surname, name".</li>
+                <li><em>Role: </em>string indicating the role of the astronaut in this particular mission.</li>
+                <li><em>Join Year: </em> the year in which the astronaut joined the mission.</li>
+            </ul>
+        </li>
+        <li><strong>Launch type:</strong> the type of launch, the possible values are 'Orbital', 'DeepSpaceMission' and 'unknown'</li>
+        <li><strong>Success or Fail:</strong> field that can assume two values, 'success' or 'fail', that indicates whether the mission/launch has been a success or failure</li>
+    </ul>
+    <h2>Data</h2>
+    <ul>
+        <li><a href="{% url 'space_missions:missions-list' %}">Click here to view the full data (Mission+Launch+AstronautOccupations)</a></li>
+        <li>To <em>download</em> the data in csv format, click:
+            <ul>
+                <li><a href="{% url 'space_missions:missions-csv' %}">here for the missions-launches table</a></li>
+                <li><a href="{% url 'space_missions:astronautoccupations-csv' %}">here for the table of the astronauts occupations per mission.</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
