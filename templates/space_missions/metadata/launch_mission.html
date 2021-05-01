@@ -6,7 +6,7 @@
         <li><strong>Name:</strong> the mission's identifier.</li>
         <li><strong>Launch ID:</strong> the launch identifier.</li>
         <li><strong>Date: </strong> the launch date, expressed in the format Mon-DD-YYYY</li>
-        <li><strong>Organisation:</strong> identifier of the <a href="#">organisation</a> that organised the launch</li>{# TODO: add link to org metadata page #}
+        <li><strong>Organisation:</strong> identifier of the <a href="{% url 'space_missions:organisations' %}">organisation</a> that organised the launch</li>
         <li><strong>Vehicle:</strong> vehicle's identifier that refers to the <a href="{% url 'space_missions:launch-vehicles' %}">Launch Vehicle table</a></li>
         <li><strong>Astronauts: </strong> list of astronauts that participated in this missions, together with the following data:
             <ul>

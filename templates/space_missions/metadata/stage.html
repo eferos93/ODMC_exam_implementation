@@ -3,8 +3,8 @@
 {% block content %}
     <h1>Stage Metadata</h1>
     <ul>
-        <li><strong>Name:</strong> name of the vehicle, assigned by the <a href="#">manufacturer</a>.</li> {# TODO: add link to org metadata page #}
-        <li><strong>Manufacturer:</strong> <a href="#">manufacturer</a>'s identifier.<em></em></li> {# TODO: add link to org metadata page #}
+        <li><strong>Name:</strong> name of the vehicle, assigned by the <a href="{% url 'space_missions:organisations' %}">manufacturer</a>.</li>
+        <li><strong>Manufacturer:</strong> <a href="{% url 'space_missions:organisations' %}">manufacturer</a>'s identifier.<em></em></li>
         <li><strong>Engine:</strong> <a href="{% url 'space_missions:engines' %}">engine</a>'s identifier.</li>
         <li><strong><a href="https://en.wikipedia.org/wiki/Length">Length</a>:</strong> <a href="https://en.wikipedia.org/wiki/Length">length</a> in meters.</li>
         <li><strong><a href="https://en.wikipedia.org/wiki/Diameter">Diameter</a>:</strong></li>

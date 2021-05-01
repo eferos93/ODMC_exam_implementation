@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Vehicle metadata</h1>
     <ul>
-        <li><strong>Name:</strong> vehicle name, given by its <a href="#">manufacturer</a></li> {# TODO: add org link to metadata page #}
+        <li><strong>Name:</strong> vehicle name, given by its <a href="{% url 'space_missions:organisations' %}">manufacturer</a></li>
         <li><strong>Class:</strong> the vehicle type. It can be one of the following values:
             <ul>
                 <li>Extraterrestrial Deep Space Launch</li>
@@ -27,7 +27,7 @@
                 <li><em>Dummy:</em> binary value 'yes' or 'no' indicating if it is a dummy stage or not.</li>
             </ul>
         </li>
-        <li><strong>Manufacturer:</strong> <a href="#">manufacturer</a> identifier.</li> {# TODO: add link to org metadata page #}
+        <li><strong>Manufacturer:</strong> <a href="{% url 'space_missions:organisations' %}">manufacturer</a> identifier.</li>
         <li><strong>Minimum number of stages:</strong> integer indicating the minimum number of stages supported by the vehicle</li>
         <li><strong>Maximum number of stages:</strong> integer indicating the maximum number of stages supported by the vehicle</li>
         <li><strong>Launch <a href="https://en.wikipedia.org/wiki/Mass">Mass</a>:</strong> the mass at the moment of launch, expressed in tons.</li>
