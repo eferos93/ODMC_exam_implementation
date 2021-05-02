@@ -137,7 +137,6 @@ class Mission(models.Model):
 class LaunchVehicle(models.Model):
     class Meta:
         ordering = ['name']
-
     name = models.CharField(max_length=256, unique=True)
     min_stage = models.IntegerField(null=True, blank=True)
     max_stage = models.IntegerField(null=True, blank=True)
@@ -145,7 +144,6 @@ class LaunchVehicle(models.Model):
     TO_thrust = models.FloatField(null=True, blank=True)
     length = models.FloatField(null=True, blank=True)
     diameter = models.FloatField(null=True, blank=True)
-
     vehicle_classes = [
         ('D', 'Extraterrestrial Deep Space Launch'),
         ('M', 'Missile'),
@@ -160,13 +158,9 @@ class LaunchVehicle(models.Model):
         ('T', 'Endoatmospheric test/research'),
         ('W', 'Endoatmospheric Weather rocket')
     ]
-    vehicle_class = models.CharField(max_length=1,
-                                     choices=vehicle_classes,
-                                     default='O')
-    stages = models.ManyToManyField('space_missions.Stage',
-                                    through='VehicleStage', blank=True)
-    manufacturer = models.ForeignKey('space_missions.Organisation',
-                                     on_delete=models.SET_NULL, blank=True, null=True)
+    vehicle_class = models.CharField(max_length=1, choices=vehicle_classes, default='O')
+    stages = models.ManyToManyField('space_missions.Stage', through='VehicleStage', blank=True)
+    manufacturer = models.ForeignKey('space_missions.Organisation', on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -213,11 +207,8 @@ class VehicleStage(models.Model):
     class Meta:
         unique_together = [('launch_vehicle', 'stage', 'stage_number', 'dummy')]
         ordering = ['launch_vehicle', 'stage']
-
-    launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle',
-                                       on_delete=models.CASCADE)
-    stage = models.ForeignKey('space_missions.Stage',
-                              on_delete=models.CASCADE)
+    launch_vehicle = models.ForeignKey('space_missions.LaunchVehicle', on_delete=models.CASCADE)
+    stage = models.ForeignKey('space_missions.Stage', on_delete=models.CASCADE)
     stage_numbers = [
         ('-1', '-1'),
         ('0', '0'),
@@ -229,7 +220,6 @@ class VehicleStage(models.Model):
         ('6', '6'),
         ('F', 'Fairing')
     ]
-
     stage_number = models.CharField(max_length=2, choices=stage_numbers)
     dummy = models.CharField(max_length=3, choices=[(value, value) for value in ['yes', 'no']])
 
